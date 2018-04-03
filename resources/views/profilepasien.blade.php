@@ -1,6 +1,21 @@
 @extends('halamanpasien')
 
 @section('isi2')
+
+@if(session()->has('update'))
+      <script>
+        $().ready(function (e) {
+          swal({
+            title: "Success!",
+            text: "Profil berhasil diubah :)",
+            icon: "success",
+            button: false,
+            timer: 2000
+          });
+        });
+      </script>
+      @endif
+
     <section class="content-header">
       <h1>
         Profile
@@ -22,7 +37,7 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               @foreach($profil as $data)
-              <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_pasien}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
 
               <h3 class="profile-username text-center">{{$data->name}}</h3>
 
@@ -57,6 +72,14 @@
              </p>
 
               </ul>
+
+              <hr>
+
+               <strong><i class="fa  fa-calendar-times-o margin-r-5"></i>No Telfon</strong>
+
+              <p>
+                {{$data->no_telfon_pasien}}
+              </p>
 
               <div class="box-footer">
                 <div class="col-md-12"> 
@@ -108,6 +131,10 @@
                       <option value="male" <?php if($data->jenis_kelamin=="Laki-laki"){echo "selected";} ?>>Laki-laki</option>
                       <option value="female" <?php if($data->jenis_kelamin=="Perempuan"){echo "selected";} ?>>Perempuan</option>
                     </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">No Telfon</label>
+                  <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="Nomor Telepon" value="{{$data->no_telfon_pasien}}">
                 </div>
               </div>
               @endforeach

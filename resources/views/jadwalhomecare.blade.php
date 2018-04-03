@@ -1,6 +1,21 @@
 @extends('halamanperawat')
 
 @section('isi3')
+
+@if(session()->has('jadwal'))
+      <script>
+        $().ready(function (e) {
+          swal({
+            title: "Success!",
+            text: "Jadwal berhasil ditambahkan",
+            icon: "success",
+            button: false,
+            timer: 2000
+          });
+        });
+      </script>
+      @endif
+
     <section class="content">
       <div class="callout callout-info">
           <h4>Halo :)</h4>

@@ -31,10 +31,6 @@ class FormLayananController extends Controller
         ->with('detailhomecare',  $detailhomecare)
         ->with('jadwalhomecare',  $jadwalhomecare);
 
-
-        // $jenis = FormLayanan::all();
-        // return view('pasienpesan')->with('jenis',$jenis);
-
     }
 
     /**
@@ -58,7 +54,7 @@ class FormLayananController extends Controller
        $validasi = $request->validate([
         'nama_homecare' => ['required'],
         'jenis_layanan' => ['required'],
-        'foto' => ['required|mimes:jpeg,bmp,png|size:5000'],
+        'foto' => ['required'],
         'alamat_homecare' => ['required']
        ]);
         
@@ -133,7 +129,7 @@ class FormLayananController extends Controller
         }
         $layanan->save();
 
-        return redirect('formlayanan')->with(session()->flash('update', ''));
+        return redirect('formlayanan')->with(session()->flash('jenis', ''));
     }
 
     /**

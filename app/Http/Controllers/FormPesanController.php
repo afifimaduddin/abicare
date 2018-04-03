@@ -18,7 +18,7 @@ class FormPesanController extends Controller
     public function index()
     {
         //
-       
+
     }
 
     /**
@@ -38,26 +38,87 @@ class FormPesanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    function hari_ini($tanggal){
+      $hari = date ("D", strtotime($tanggal));
+
+      switch($hari){
+        case 'Sun':
+        $hari_ini = "Minggu";
+        break;
+
+        case 'Mon':     
+        $hari_ini = "Senin";
+        break;
+
+        case 'Tue':
+        $hari_ini = "Selasa";
+        break;
+
+        case 'Wed':
+        $hari_ini = "Rabu";
+        break;
+
+        case 'Thu':
+        $hari_ini = "Kamis";
+        break;
+
+        case 'Fri':
+        $hari_ini = "Jumat";
+        break;
+
+        case 'Sat':
+        $hari_ini = "Sabtu";
+        break;
+
+        default:
+        $hari_ini = "Tidak di ketahui";   
+        break;
+    }
+
+    return $hari_ini;
+
+}
+
+public function store(Request $request)
+{
         //
-        $validasi = $request->validate([
+    $validasi = $request->validate([
         'tanggal_pemesanan' => ['required'],
         'jam_pemesanan' => ['required'],
         'keluhan' => ['required']
-       ]);
-        
-        $pesan = new FormPesan;
-        $pesan->id_users = Auth::user()->id;
-        $pesan->id_jenis_perawatan = $request->id_jenis_perawatan;
-        $pesan->tanggal_pemesanan = $request->tanggal_pemesanan;
-        $pesan->jam_pemesanan = $request->jam_pemesanan;
-        $pesan->keluhan = $request->keluhan;
-        $pesan->save();
+    ]);
+
+    $tanggal = $this->hari_ini($request->tanggal_pemesanan);
+
+    $cek = FormLayanan::query()->join('detail_homecare','jenis_perawatan.id_jenis_perawatan','=','detail_homecare.id_jenis_perawatan')
+         ->join('jadwal_homecare','detail_homecare.id_detail_perawatan','=','jadwal_homecare.id_detail_perawatan')
+         ->where('jenis_perawatan.id_jenis_perawatan',$request->id_jenis_perawatan)
+         ->where('jadwal_homecare.hari_praktek',$tanggal)
+         ->where('jadwal_homecare.start','<=', $request->jam_pemesanan)
+         ->where('jadwal_homecare.end','>=', $request->jam_pemesanan)->get()->count();
+        if($cek>0){
+            //Jadwal tersedia
+            $pesan = new FormPesan;
+            $pesan->id_users = Auth::user()->id;
+            $pesan->id_jenis_perawatan = $request->id_jenis_perawatan;
+            $pesan->tanggal_pemesanan = $request->tanggal_pemesanan;
+            $pesan->jam_pemesanan = $request->jam_pemesanan;
+            $pesan->keluhan = $request->keluhan;
+            $pesan->save();
+
+            return redirect('riwayatpemesanan')->with(session()->flash('store', ''));
+
+        }
+        else{
+            //Jadwal tidak tersedia
+            return redirect('formpesan/'.$request->id_jenis_perawatan)->with(session()->flash('error', ''));
+        }
+
+    
 
 
-        return redirect('riwayatpemesanan');
-    }
+    
+}
 
     /**
      * Display the specified resource.

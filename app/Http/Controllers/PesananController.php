@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\FormLayanan;
-use App\User;
+use App\FormPesan;
 use Auth;
 
-class ProfilPasienController extends Controller
+class PesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,15 @@ class ProfilPasienController extends Controller
      */
     public function index()
     {
-        $profil = User::all()->where('id', Auth::user()->id)->where('id_roles',1);
-        return view('profilepasien')->with('profil',$profil);
+        //
+        $pesanan = FormPesan::query()->join('jenis_perawatan','jenis_perawatan.id_jenis_perawatan','=','pemesanan.id_jenis_perawatan')
+         ->join('detail_homecare','detail_homecare.id_jenis_perawatan','=','jenis_perawatan.id_jenis_perawatan')
+         ->join('users','users.id','=','jenis_perawatan.id_users')
+         ->join('users as u','u.id','=','pemesanan.id_users')
+         ->where('u.id_roles',1)
+         ->where('users.id',Auth::user()->id)->get();
+
+        return view('pesanan')->with('pesanan',$pesanan);
     }
 
     /**
@@ -36,6 +42,16 @@ class ProfilPasienController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function ubahstatus($id_pemesanan)
+    {
+        $pemesanan = FormPesan::find($id_pemesanan);
+        $pemesanan->status = 'selesai';
+        $pemesanan->save();
+
+        return redirect('pesanan');
+    }
+
     public function store(Request $request)
     {
         //
@@ -73,24 +89,6 @@ class ProfilPasienController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $profil = User::find($id);
-        $profil->name = $request->nama_pasien;
-        $profil->email = $request->email_pasien;
-        $profil->id = Auth::user()->id;
-        $profil->foto_pasien = $request->foto;
-        $profil->no_telfon_pasien = $request->no_telfon;
-        $profil->tanggal_lahir = $request->tanggal_lahir;
-        $profil->jenis_kelamin = $request->jenis_kelamin;
-        if($request->hasFile('foto') && $request->file('foto')->isValid()) {
-           $destinationPath = 'public/asset/dist/img';
-           $extension = $request->foto->extension();
-           $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-           $request->foto->storeAs($destinationPath, $fileName);
-           $profil->foto_homecare = $fileName;
-        }
-        $profil->save();
-
-        return redirect('profilepasien')->with(session()->flash('update', ''));
     }
 
     /**

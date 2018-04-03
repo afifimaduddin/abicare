@@ -56,7 +56,7 @@ class JadwalHomecareController extends Controller
         $jadwal->id_detail_perawatan = DB::table('detail_homecare')->where('id_users', Auth::user()->id )->first()->id_detail_perawatan;
         $jadwal->save();
 
-        return redirect('jadwalhomecare');
+        return redirect('jadwalhomecare')->with(session()->flash('jadwal', ''));
     }
 
     /**
@@ -99,7 +99,7 @@ class JadwalHomecareController extends Controller
         $jadwal->id_detail_perawatan = DB::table('detail_homecare')->where('id_users', Auth::user()->id )->first()->id_detail_perawatan;
         $jadwal->save();
 
-        return redirect('formlayanan');
+        return redirect('formlayanan')->with(session()->flash('jadwal', ''));
     }
 
     /**

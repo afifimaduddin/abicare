@@ -20,8 +20,6 @@ Auth::routes();
 
 Route::post('/register', 'Auth\RegisterController@register');
 
-Route::get('/registerabicare', 'PasienController@regis');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
@@ -98,4 +96,10 @@ Route::resource('lihatdetail', 'LihatDetailController');
 Route::resource('formpesan', 'FormPesanController');
 
 Route::resource('riwayatpemesanan', 'RiwayatPemesananController');
+
+Route::resource('pesanan', 'PesananController');
+
+Route::get('ubahstatus/{id}','PesananController@ubahstatus');
+
+Route::resource('welcome_daftar_hc', 'WelcomeDaftarHcController');
 

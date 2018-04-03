@@ -1,6 +1,21 @@
 @extends('halamanpasien')
 
 @section('isi2')
+
+ @if(session()->has('error'))
+      <script>
+        $().ready(function (e) {
+          swal({
+            title: "Maaf!",
+            text: "Jadwal Tidak Tersedia",
+            icon: "warning",
+            button: false,
+            timer: 2000
+          });
+        });
+      </script>
+      @endif
+
     <section class="content">
       <div>
         <h4>Pesan Homecare</h4>
@@ -75,9 +90,10 @@
           </form>  
             <!-- /.box-body -->
           </div>
+        </div>
         
-        <div class="row">
-          <div class="col-md-12">
+      
+          <div class="col-md-6">
             <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">Jadwal Homecare</h3>

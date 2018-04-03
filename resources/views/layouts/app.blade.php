@@ -29,7 +29,7 @@
 
                     
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Abicare') }}
+                        Abicare Indonesia
                     </a>
                 </div>
 
