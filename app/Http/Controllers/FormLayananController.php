@@ -74,7 +74,7 @@ class FormLayananController extends Controller
         $layanan->save();
 
 
-        return redirect('detailhomecare');
+        return redirect('detailhomecare')->with(session()->flash('identitas', ''));
 
     }
 

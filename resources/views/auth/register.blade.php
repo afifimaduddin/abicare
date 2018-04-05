@@ -32,7 +32,7 @@
 
                                 @if ($errors->has('tanggal_lahir'))
                                     <span class="help-block">
-                                        <option calss value selected>Tanggal Lahir</option>
+                                        <option value="" disabled selected=""> <i>---Tanggal Lahir---</i></option>
                                         <strong>{{ $errors->first('tanggal_lahir') }}</strong>
                                     </span>
                                 @endif
@@ -79,7 +79,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password terdiri dari 6 karakter">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -100,6 +100,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-md-offset-1">
                                 <select name="id_roles" class="form-control">
+                                     <option value="" disabled selected=""> <i>---Daftar Sebagai---</i></option>
                                     @foreach (\App\roles::all() as $users)
                                             <option value="{{ $users->id_roles }}">{{ $users->nama_roles }}</option>
                                     @endforeach

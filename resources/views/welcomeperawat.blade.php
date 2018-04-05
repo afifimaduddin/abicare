@@ -11,6 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
+  <script src="{{url('asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/templatemo_style.css" rel="stylesheet">
@@ -19,9 +20,8 @@
   <link rel="stylesheet" href="css/nivo-slider.css">
   <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,600' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
   <script type="text/JavaScript" src="js/slimbox2.js"></script> 
-
   <link rel="stylesheet" href="{{url('asset/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('asset/bower_components/font-awesome/css/font-awesome.min.css')}}">
@@ -42,8 +42,19 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+    
+<!--     <script type="text/javascript" src="js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="{{url('js/ddsmoothmenu.js')}}"></script>
+    <!-- jQuery 3 -->
+
+<!-- Bootstrap 3.3.7 -->
+<script src="{{url('asset/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{url('asset/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{url('asset/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{url('asset/dist/js/demo.js')}}"></script>
 
 <!--/***********************************************
 * Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
@@ -98,161 +109,59 @@
     </div>
   </div>
 </div>
-<div class="clear"></div>
-<!-- end menu -->
-<div  id="slider"  class="nivoSlider templatemo_slider">
-  <a href="#"><img src="images/slider/healthnet-homecare-logo.png" alt="slide 1" /></a>             
-  <a href="#"><img src="images/slider/banner_RGB2.jpg" alt="slide 2" /></a>  
-  <a href="#"><img src="images/slider/Health-Net-employee-misclassification.png" alt="slide 3" /></a>             
-  
-</div>
 </header>
 <div class="templatemo_portfolio" id="templatemo_portfolio">
-  <h2>Daftar Sebagai</h2>
-  <p></p>
   <div class="container">
-    <div class="col-md-1 col-md-offset-4 templatemo_col12">
+    <div class="col-md-3 col-md-offset-4 templatemo_col12">
       <div class="item project-post">
         <div class="templatemo_about_box">
-          <a href="{{url('welcomepasien')}}">
-        <div class="square_coner">
-         <span class="texts-a" ><i class="fa fa-user"></i></span>
+          <div class="square_coner">
+           <span class="texts-a"><i class="fa fa-user-md"></i></span>
+         </div>
        </div>
-       </a>                         
-       1. Pasien</div>
-    </div>  
-  </div>
-  <div class="col-md-3 col-md-offset-1 templatemo_col12">
-    <div class="item project-post">
-      <div class="templatemo_about_box">
-        <a href="{{url('welcomeperawat')}}">
-        <div class="square_coner">
-         <span class="texts-a" ><i class="fa fa-user-md"></i></span>
-       </div>
-       </a>
-      2. Perawat</div>
-    </div>  
-  </div>
+     </div>  
+   </div>
 
-</div>
-</div>
+ </div>
+<!--  <h2 class="page-header">Perawat</h2> -->
+ <div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <!-- Custom Tabs -->
+    <div class="nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab_1" data-toggle="tab">Daftar Perawat</a></li>
+        <li><a href="#tab_2" data-toggle="tab">Buat Homecare</a></li>
+        <li><a href="#tab_3" data-toggle="tab">Hubungi Pasien</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab_1">
+          <b>Selamat datang di Abicare Indonesia</b>
 
-<div class=""></div>
-<div class="templatemo_reasonbg">
-  <h2>Keunggulan Abicare</h2>
-  <p>- Homecare yang terdaftar dalam aplikasi profesional dan terpercaya sesuai undang-undang.</p>
-  <p>- Perawat atau tenaga kesehatan profesional dibidangnya.</p>
-  <p>- Mengetahui biaya perawatan yang akan dibayarkan sesuai.</p>
-</div>
-<div class="clear"></div>
-<!--Our Portfolio Start-->
-<div class="templatemo_portfolio" id="templatemo_portfolio">
-  <h2>Kegiatan Kami</h2>
-  <p></p>
-  
-  <div class="container">
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-      <div class="portfolio-item">
-        <div class="portfolio-thumb">
-          <img src="images/portfolio/IMG_20171209_163046.jpg" alt="portfolio 1">
-          <div class="overlay-p">
-            <a href="images/portfolio/1.jpg" data-rel="lightbox[portfolio]">
-              <ul>
-                <li>Delegasi Mahasiswa Indonesia di acara Kaohsiung International Invention and Design Expo</li>
-              </ul>
-            </a>
+          <p>Untuk melakukan pelayanan online dan terhubung dengan pasien anda, perawat harus menjadi member Abicare Indonesia.</p>
+
+          <a class="btn btn-primary" href="{{route('register')}}">Daftar Sekarang</a>
           </div>
-        </div> <!-- /.portfolio-thumb -->
-      </div>
-      
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-      <div class="portfolio-item">
-        <div class="portfolio-thumb">
-          <img src="images/portfolio/IMG_20171210_115834.jpg" alt="portfolio 2">
-          <div class="overlay-p">
-            <a href="images/portfolio/2.jpg" data-rel="lightbox[portfolio]">
-              <ul>
-                <li>Delegasi Mahasiswa Indonesia di acara Kaohsiung International Invention and Design Expo</li>
-              </ul>
-            </a>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_2">
+           Member perawat atau mitra Abicare Indonesia dapat membuat homecare sesuai jenis pelayanan yang telah ada 
+
+           <p></p>
           </div>
-        </div> <!-- /.portfolio-thumb -->
-      </div>
-      
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-      <div class="portfolio-item">
-        <div class="portfolio-thumb">
-          <img src="images/portfolio/IMG_20171007_190518.jpg" alt="portfolio 3">
-          <div class="overlay-p">
-            <a href="images/portfolio/3.jpg" data-rel="lightbox[portfolio]">
-              <ul>
-                <li>Penjelasan Kepada peserta Expo di Gedung Imam Barjo, Kampus 2 Universitas Dioponegoro</li>
-              </ul>
-            </a>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_3">
+            Member dapat mengetahui keluhan dan menghubungi pasien jika ada pesanan yang masuk
+
+            <p></p>
           </div>
-        </div> <!-- /.portfolio-thumb -->
-      </div>
-      
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
-      <div class="portfolio-item">
-        <div class="portfolio-thumb">
-          <img src="images/portfolio/IMG-20170826-WA0017.jpg" alt="portfolio 4">
-          <div class="overlay-p">
-            <a href="images/portfolio/4.jpg" data-rel="lightbox[portfolio]">
-              <ul>
-                <li>Foto bersama doen dan pembicara di acara Seminar Keperawatan</li>
-              </ul>
-            </a>
-          </div>
-        </div> <!-- /.portfolio-thumb -->
-      </div>
-      
-    </div>
-  </div>
-  </div>
-</div>
-<!--Our Portfolio End-->
-<div class="clear"></div>
-<!--Our Partner Start-->
-<div class="section6 templatemo_partner" id="templatemo_partners">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="secHeader">
-          <h2 class="text-center">Kerjasama Homecare</h2>
-          <!--  <p class="text-center">Etiam faucibus turpis id ipsum egestas porta. Cras in aliquet purus, ac varius turpis.</p> -->
+          <!-- /.tab-pane -->
         </div>
+        <!-- /.tab-content -->
       </div>
+      <!-- nav-tabs-custom -->
     </div>
   </div>
-  <div class="partnerWrap">
-    <div class="slideshow" 
-    data-cycle-fx=carousel
-    data-cycle-timeout=0
-    data-cycle-carousel-visible=4
-    data-cycle-next="#next"
-    data-cycle-prev="#prev"
-    data-cycle-carousel-fluid=true
-    >
-    <img alt="partner 1" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 2" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 3" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 4" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 5" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 6" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 7" src="images/partners/banner_RGB2.jpg" >
-    <img alt="partner 8" src="images/partners/banner_RGB2.jpg" >
-  </div>
-  <a href="#" id="prev">&lt;&lt; Prev </a>
-  <a href="#" id="next"> Next &gt;&gt; </a>
 </div>
-
-</div>
-<!--Our Partner End-->
-<!--Our Client Start-->
+<!-- Bottom Start -->
 <div class="clear"></div>
       <!--Footer Start-->
       <div class="templatemo_footer">
@@ -284,28 +193,27 @@
           </div>
         </div>
       </div>
-      <!--Footer End-->
-      <!-- Bottom Start -->
-      <div class="templatemo_bottom">
-        <div class="container">
-          <div class="row">
-            <div class="left">
-              <span>Copyright © 2018 <a href="{{ url('/') }}">Abicare Indonesai</a></span>
-            </div>
-            <div class="right">
-              <a href="#"><div class="fa fa-rss soc"></div></a>
-              <a href="#"><div class="fa fa-twitter soc"></div></a>
-              <a href="#"><div class="fa fa-linkedin soc"></div></a>
-              <a href="#"><div class="fa fa-dribbble soc"></div></a>
-              <a href="#"><div class="fa fa-facebook soc"></div></a>
-            </div>
-          </div>
-        </div>
+
+<div class="templatemo_bottom">
+  <div class="container">
+    <div class="row">
+      <div class="left">
+        <span>Copyright © 2018 <a href="{{ url('/') }}">Abicare Indonesai</a></span>
       </div>
+      <div class="right">
+        <a href="#"><div class="fa fa-rss soc"></div></a>
+        <a href="#"><div class="fa fa-twitter soc"></div></a>
+        <a href="#"><div class="fa fa-linkedin soc"></div></a>
+        <a href="#"><div class="fa fa-dribbble soc"></div></a>
+        <a href="#"><div class="fa fa-facebook soc"></div></a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
         <!-- Bottom End -->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
-        <script src="js/jquery-1.10.2.min.js"></script>
         <script src="js/jquery.cookie.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.cycle2.min.js"></script>

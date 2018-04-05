@@ -27,7 +27,7 @@
         $().ready(function (e) {
           swal({
             title: "Success!",
-            text: "Detail Homecare berhasil diubah",
+            text: "Detail Homecare berhasil diubah :)",
             icon: "success",
             button: false,
             timer: 2000
@@ -41,7 +41,7 @@
         $().ready(function (e) {
           swal({
             title: "Success!",
-            text: "Berhasil diubah",
+            text: "Identitas berhasil diubah :)",
             icon: "success",
             button: false,
             timer: 2000
@@ -55,7 +55,7 @@
         $().ready(function (e) {
           swal({
             title: "Success!",
-            text: "Jadwal berhasil diubah",
+            text: "Jadwal berhasil diubah :)",
             icon: "success",
             button: false,
             timer: 2000
@@ -63,7 +63,6 @@
         });
       </script>
       @endif
-
       <br>
         <!-- <?php
           //echo $id_jenis_perawatan;    
@@ -103,7 +102,7 @@
           <div class="col-md-6">
 
             <!-- Profile Image -->
-            <div class="box box-primary">
+            <div class="box box-success">
               <div class="box-body box-profile">
                 <ul class="list-group list-group-unbordered">
                   <strong><i class="fa fa-book margin-r-5"></i>Deskripsi Homecare</strong>
@@ -133,7 +132,7 @@
 
                 <div class="box-footer">
                   <div class="col-md-2 col-md-offset-10">  
-                    <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-default"><b>Ubah</b></a>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><b>Ubah</b></a>
                   </div>
                 </div>  
               </div>
@@ -144,7 +143,7 @@
           </div>
 
           <div class="col-md-6">
-            <div class="box box-primary">
+            <div class="box box-success">
               <div class="box-header">
                 <h3 class="box-title">Jadwal Homecare</h3>
               </div>
@@ -175,7 +174,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Edit Detail Homecare</h4>
+                            <h4 class="modal-title">Ubah Jadwal Homecare</h4>
                           </div>
                           <div class="modal-body">
                             <form role="form" action="{{ route('jadwalhomecare.update', $data->id_jadwal_homecare) }}" method="POST">
@@ -245,10 +244,10 @@
             <!-- /.box-body -->
           </section>
           <section class="content" style="display:<?php echo $tampilkanform ?>" >
-            <div class="callout callout-info">
-              <h4>Selamat Datang di Abicare Indonesia</h4>
+            <div class="callout callout-success">
+              <h4>Selamat Datang di Abicare Indonesia :)</h4>
 
-              <p>Silahkan isi form dibawah untuk menambah layanan dihalaman homecare.</p>
+              <p>Silahkan lengkapi form dibawah untuk menambah identitas homecare.</p>
             </div>
 
             @if (count($errors) > 0)
@@ -309,7 +308,7 @@
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                       <div class="form-group">
                         <label for="exampleInputFile">Foto Homecare</label>
-                        <input type="file" id="exampleInputFile" name="foto">
+                        <input type="file" class="form-control" id="exampleInputFile" name="foto">
 
                         <p class="help-block">Maksimal file 1 MB</p>
 
@@ -360,7 +359,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Edit Homecare</h4>
+                  <h4 class="modal-title">Ubah Identitas Homecare</h4>
                 </div>
                 <div class="modal-body">
                   <div class="box-body">
@@ -446,7 +445,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Edit Detail Homecare</h4>
+              <h4 class="modal-title">Ubah Detail Homecare</h4>
             </div>
             <div class="modal-body">
               @foreach($detailhomecare as $data)

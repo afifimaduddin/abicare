@@ -19,7 +19,7 @@ class DaftarHomecareController extends Controller
         ->join('role_jenis','role.id_perawatan','=','jenis_peratawan.id_perawatan')
         ->where('role_jenis.id_perawatan', 'Akupuntur')->get();*/
 
-         return view('daftarhomecare');/*->with('homecare', $homecare)*/
+        return view('daftarhomecare');/*->with('homecare', $homecare)*/
     }
 
     /**

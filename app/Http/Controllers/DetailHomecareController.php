@@ -19,8 +19,8 @@ class DetailHomecareController extends Controller
     public function index()
     {
         //
-       return view('detailhomecare');
-    }
+     return view('detailhomecare');
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -42,11 +42,11 @@ class DetailHomecareController extends Controller
     {
         //
         $validasi = $request->validate([
-        'deskripsi_homecare' => ['required'],
-        'email_homecare' => ['required'],
-        'no_telfon' => ['required'],
-        'tarif' => ['required']
-       ]);
+            'deskripsi_homecare' => ['required'],
+            'email_homecare' => ['required'],
+            'no_telfon' => ['required'],
+            'tarif' => ['required']
+        ]);
         
         $detail = new DetailHomecare;
         $detail->deskripsi_homecare = $request->deskripsi_homecare;
@@ -59,7 +59,7 @@ class DetailHomecareController extends Controller
         $detail->save();
 
 
-        return redirect('jadwalhomecare');
+        return redirect('jadwalhomecare')->with(session()->flash('detail', ''));
 
     }
 
@@ -96,19 +96,19 @@ class DetailHomecareController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $detail = DetailHomecare::find($id);
-        $detail->deskripsi_homecare = $request->deskripsi_homecare;
+       $detail = DetailHomecare::find($id);
+       $detail->deskripsi_homecare = $request->deskripsi_homecare;
         // $detail->id_jenis_perawatan = FormLayanan::all()->id_jenis_perawatan;
-        $detail->id_jenis_perawatan = DB::table('jenis_perawatan')->where('id_users', Auth::user()->id )->first()->id_jenis_perawatan;
-        $detail->id_users = Auth::user()->id;
-        $detail->email_homecare = $request->email_homecare;
-        $detail->no_telfon = $request->no_telfon;
-        $detail->tarif = $request->tarif;
-        $detail->save();
+       $detail->id_jenis_perawatan = DB::table('jenis_perawatan')->where('id_users', Auth::user()->id )->first()->id_jenis_perawatan;
+       $detail->id_users = Auth::user()->id;
+       $detail->email_homecare = $request->email_homecare;
+       $detail->no_telfon = $request->no_telfon;
+       $detail->tarif = $request->tarif;
+       $detail->save();
 
 
-        return redirect('formlayanan')->with(session()->flash('update', ''));
-    }
+       return redirect('formlayanan')->with(session()->flash('update', ''));
+   }
 
     /**
      * Remove the specified resource from storage.

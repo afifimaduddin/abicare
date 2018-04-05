@@ -3,18 +3,18 @@
 @section('isi2')
 
 @if(session()->has('store'))
-      <script>
-        $().ready(function (e) {
-          swal({
-            title: "Selamat!",
-            text: "Pemesanan Telah Dilakukan :)",
-            icon: "success",
-            button: false,
-            timer: 2000
-          });
-        });
-      </script>
-      @endif
+<script>
+  $().ready(function (e) {
+    swal({
+      title: "Selamat!",
+      text: "Pemesanan Telah Dilakukan :)",
+      icon: "success",
+      button: false,
+      timer: 2000
+    });
+  });
+</script>
+@endif
 
 <section class="content">
   <div class="row">

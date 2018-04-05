@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 
@@ -76,6 +76,12 @@ Route::get('halamanadmin','AdminController@haladmin')->name('admin');
 //route ke halaman list homecare
 Route::get('listhomecare','AdminController@listhome');
 
+//route ke halaman welcome perawat
+Route::get('welcomeperawat','PerawatController@welcome1');
+
+//route ke halaman welcome pasien
+Route::get('welcomepasien','PasienController@welcome2');
+
 //
 Route::resource('listhomecare','ListController');
 
@@ -100,6 +106,4 @@ Route::resource('riwayatpemesanan', 'RiwayatPemesananController');
 Route::resource('pesanan', 'PesananController');
 
 Route::get('ubahstatus/{id}','PesananController@ubahstatus');
-
-Route::resource('welcome_daftar_hc', 'WelcomeDaftarHcController');
 

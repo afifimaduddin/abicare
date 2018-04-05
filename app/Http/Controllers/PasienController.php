@@ -37,8 +37,8 @@ class PasienController extends Controller
         return view('formpesan');
     }
 
-    public function regis()
+    public function welcome2()
     {
-        return view('registerabicare');
+        return view('welcomepasien');
     }
 }

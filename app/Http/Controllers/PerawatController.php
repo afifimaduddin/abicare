@@ -40,5 +40,10 @@ class PerawatController extends Controller
         return view('jadwalhomecare');
     }
 
+    public function welcome1()
+    {
+        return view('welcomeperawat');
+    }
+
 
 }

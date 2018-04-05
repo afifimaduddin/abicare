@@ -31,6 +31,8 @@
    <link rel="stylesheet" href="{{url('asset/bower_components/Ionicons/css/ionicons.min.css')}}">
    <!-- DataTables -->
    <link rel="stylesheet" href="{{url('asset/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+   <!-- Bootstrap time Picker -->
+   <link rel="stylesheet" href="{{url('asset/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,6 +69,8 @@
 <script src="{{url('asset/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- datepicker -->
 <script src="{{url('asset/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+
+<script src="{{url('asset/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{url('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 <!-- Slimscroll -->
