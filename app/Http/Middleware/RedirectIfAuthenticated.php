@@ -22,10 +22,10 @@ class RedirectIfAuthenticated
         // }
 
         // return $next($request);
-        if (Auth::user() == true && Auth::user()->id_roles == 1)
+        if (Auth::user() == true && Auth::user()->id_roles == 1 && Auth::user()->status=="aktif")
        {
            return redirect()->route('pasien');
-       }elseif (Auth::user() == true && Auth::user()->id_roles == 2)
+       }elseif (Auth::user() == true && Auth::user()->id_roles == 2 && Auth::user()->status=="aktif")
        {
             return redirect()->route('perawat');
        }elseif (Auth::user() == true && Auth::user()->id_roles == 3)

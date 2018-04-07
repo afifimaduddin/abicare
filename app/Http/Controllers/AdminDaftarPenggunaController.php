@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
-class DaftarSebagaiPerawatController extends Controller
+class AdminDaftarPenggunaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +16,8 @@ class DaftarSebagaiPerawatController extends Controller
     public function index()
     {
         //
+        $daftarpengguna = User::all();
+        return view('admin_daftarpengguna')->with('daftarpengguna',$daftarpengguna);
     }
 
     /**

@@ -20,12 +20,20 @@ class AdminController extends Controller
     {
     	return view('listhomecare');
     }
-    public function dafpesanan()
+    public function dafpengguna()
     {
-        return view('daftarpesanan');
+        return view('admin_daftarpengguna');
     }
-    // public function afterregister()
-    // {
-    // 	return view('login')
-    // }
+    public function pemesanan()
+    {
+    	return view('admin_pemesanan');
+    }
+    public function mitra()
+    {
+        return view('admin_mitrahomecare');
+    }
+    public function jenis()
+    {
+        return view('admin_jenislayanan');
+    }
 }

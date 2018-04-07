@@ -49,8 +49,17 @@ Route::get('/jadwalhomecare','PerawatController@jadwhomecare');
 //routing ke daftar users
 Route::get('/daftarusers','AdminController@dafusers');
 
+//routing ke daftar user admin
+Route::get('/admin_daftarpengguna','AdminController@dafpengguna');
+
+//routing ke daftar mktra homecare admin
+Route::get('/admin_mitrahomecare','AdminController@mitra');
+
+//routing ke daftar mktra homecare admin
+Route::get('/admin_jenislayanan','AdminController@jenis');
+
 //routing ke daftar pesanan admin
-Route::get('/daftarpesanan','AdminController@dafpesanan');
+Route::get('/admin_pemesanan','AdminController@pemesanan');
 
 //routing ke halaman psien
 Route::get('/halamanpasien','PasienController@halpasien')->name('pasien');
@@ -105,5 +114,14 @@ Route::resource('riwayatpemesanan', 'RiwayatPemesananController');
 
 Route::resource('pesanan', 'PesananController');
 
+Route::resource('admin_daftarpengguna', 'AdminDaftarPenggunaController');
+
+Route::resource('admin_jenislayanan', 'AdminJenisLayananController');
+
+Route::resource('admin_daftarpemesanan', 'AdminDaftarPemesananController');
+
 Route::get('ubahstatus/{id}','PesananController@ubahstatus');
+
+//verify
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 

@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'jenis_kelamin', 'email', 'password', 'tanggal_lahir', 'id_roles', 'foto_pasien', 'no_telfon_pasien'
+        'name', 'jenis_kelamin', 'email', 'password', 'tanggal_lahir', 'id_roles', 'foto_pasien', 'no_telfon_pasien', 'status'
     ];
 
     /**
@@ -30,4 +30,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
 }
+
+
