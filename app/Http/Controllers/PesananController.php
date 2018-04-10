@@ -16,9 +16,9 @@ class PesananController extends Controller
     public function index()
     {
         //
-        $pesanan = FormPesan::query()->join('jenis_perawatan','jenis_perawatan.id_jenis_perawatan','=','pemesanan.id_jenis_perawatan')
-         ->join('detail_homecare','detail_homecare.id_jenis_perawatan','=','jenis_perawatan.id_jenis_perawatan')
-         ->join('users','users.id','=','jenis_perawatan.id_users')
+        $pesanan = FormPesan::query()->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')
+         ->join('detail_homecare','detail_homecare.id_homecare','=','homecare.id_homecare')
+         ->join('users','users.id','=','homecare.id_users')
          ->join('users as u','u.id','=','pemesanan.id_users')
          ->where('u.id_roles',1)
          ->where('users.id',Auth::user()->id)->get();
@@ -44,6 +44,15 @@ class PesananController extends Controller
      */
 
     public function ubahstatus($id_pemesanan)
+    {
+        $pemesanan = FormPesan::find($id_pemesanan);
+        $pemesanan->status = 'diterima';
+        $pemesanan->save();
+
+        return redirect('pesanan');
+    }
+
+     public function ubahstatusditerima($id_pemesanan)
     {
         $pemesanan = FormPesan::find($id_pemesanan);
         $pemesanan->status = 'selesai';

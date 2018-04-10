@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{url('asset/bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{url('asset/dist/css/AdminLTE.min.css')}}">
+
   <!-- AdminLTE Skins. Choose a skin from the css/skins
    folder instead of downloading all of them to reduce the load. -->
    <link rel="stylesheet" href="{{url('asset/dist/css/skins/_all-skins.min.css')}}">
@@ -27,7 +28,13 @@
    <link rel="stylesheet" href="{{url('asset/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
    <!-- bootstrap wysihtml5 - text editor -->
    <link rel="stylesheet" href="{{url('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-   <!-- sweetalert -->
+
+   <link rel="stylesheet" href="{{url('asset/bower_components/Ionicons/css/ionicons.min.css')}}">
+   <!-- DataTables -->
+   <link rel="stylesheet" href="{{url('asset/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+   <!-- Bootstrap time Picker -->
+   <link rel="stylesheet" href="{{url('asset/plugins/timepicker/bootstrap-timepicker.min.css')}}">
+
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -63,6 +70,8 @@
 <script src="{{url('asset/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- datepicker -->
 <script src="{{url('asset/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+
+<script src="{{url('asset/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{url('asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 <!-- Slimscroll -->
@@ -75,6 +84,9 @@
 <script src="{{url('asset/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('asset/dist/js/demo.js')}}"></script>
+<script src="{{url('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
 
 <script src="{{url('sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{url('sweetalert/moment.min.js')}}"></script>
@@ -133,19 +145,19 @@
       <ul class="sidebar-menu" data-widget="treeview">
 
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url('/halamanperawat')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url ('/formlayanan')}}">
             <i class="fa  fa-plus"></i> <span>Layanan Homecare</span>
           </a>
         </li>
         
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url ('/pesanan')}}">
             <i class="fa fa-archive"></i><span>Daftar Pesanan</span>
           </a>
@@ -525,5 +537,47 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script>
+    //ini untuk kalau side tree nya di click bakal nambahin class active
+    var url = window.location;
+    $('ul.sidebar-menu a').filter(function () {
+        return this.href == url;
+    }).parent().addClass('active');
+
+    // untuk bagian tree view nya
+    $('ul.treeview-menu a').filter(function() {
+        return this.href == url;
+    }).closest('.treeview').addClass('active');
+</script>
+
+<script>
+      $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+          'paging'      : true,
+          'lengthChange': false,
+          'searching'   : false,
+          'ordering'    : true,
+          'info'        : true,
+          'autoWidth'   : false
+        })
+      })
+    </script>
+<script>
+  $(function () {
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+
+
+    //Timepicker
+    $('.timepicker').timepicker({
+      showInputs: false
+    })
+  })
+
+</script>    
 </body>
 </html>

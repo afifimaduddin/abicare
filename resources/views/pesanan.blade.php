@@ -8,19 +8,11 @@
         <div class="box-header">
           <h3 class="box-title">Daftar Pemesanan</h3>
 
-          <div class="box-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-              <div class="input-group-btn">
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
+          <div class="box-tools"></div>
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
             <tr>
               <th>Nama Pasien</th>
               <th>Tanggal Pemesanan</th>
@@ -29,6 +21,7 @@
               <th>Status Pemesanan</th>
               <th>Hubungi Pasien</th>
             </tr>
+          </thead>
             @foreach($pesanan as $data)
             <tr>
               <td>{{$data->name}}</td>
@@ -38,6 +31,8 @@
               <td>
                 @if($data->status=='proses')
                 <a href="{{url('/ubahstatus')}}/{{$data->id_pemesanan}}"><span class="label label-danger">Proses</span></a>
+                @elseif($data->status=='diterima')
+                <a href="{{url('/ubahstatusditerima')}}/{{$data->id_pemesanan}}"><span class="label label-warning">Pesanan Diterima</span></a>
                 @else
                 <span class="label label-success">Selesai</span>
                 @endif
@@ -52,5 +47,18 @@
       </div>
       <!-- /.row -->
     </section>
+    <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
     @append
     <!-- /.content -->

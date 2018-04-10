@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pemesanan;
+use App\FormLayanan;
 
-class AdminDaftarPemesananController extends Controller
+class AdminMitraHomecareController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,8 @@ class AdminDaftarPemesananController extends Controller
     public function index()
     {
         //
-        $pesan = Pemesanan::query()
-        ->join('users','users.id','=','pemesanan.id_users')
-        ->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')->get();
-
-        return view('admin_pemesanan')->with('pesan',$pesan);
+        $mitra = FormLayanan::all();
+        return view('admin_mitrahomecare')->with('mitra',$mitra);
     }
 
     /**

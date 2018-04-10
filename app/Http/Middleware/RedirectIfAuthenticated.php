@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use App\user;
 
 class RedirectIfAuthenticated
 {
@@ -22,10 +23,10 @@ class RedirectIfAuthenticated
         // }
 
         // return $next($request);
-        if (Auth::user() == true && Auth::user()->id_roles == 1 && Auth::user()->status=="aktif")
+        if (Auth::user() == true && Auth::user()->id_roles == 1 && User::find(Auth::user()->id)->status_users=='aktif')
        {
            return redirect()->route('pasien');
-       }elseif (Auth::user() == true && Auth::user()->id_roles == 2 && Auth::user()->status=="aktif")
+       }elseif (Auth::user() == true && Auth::user()->id_roles == 2 && User::find(Auth::user()->id)->status_users=='aktif')
        {
             return redirect()->route('perawat');
        }elseif (Auth::user() == true && Auth::user()->id_roles == 3)

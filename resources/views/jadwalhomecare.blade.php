@@ -32,7 +32,7 @@
 
 <section class="content">
   <div class="callout callout-success">
-    <h4>Lanjut :)</h4>
+    <h4></h4>
 
     <p>Silahkan isi form dibawah untuk mengisi jadwal homecare</p>
   </div>
@@ -116,13 +116,15 @@
         <h3 class="box-title">Jadwal Homecare</h3>
       </div>
       <!-- /.box-header -->
-      <div class="box-body table-responsive no-padding">
-        <table class="table table-hover">
+      <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
           <tr>
             <th>Hari Praktek</th>
             <th>Jam Buka</th>
             <th>Jam Tutup</th>
           </tr>
+        </thead>
           @foreach($jadwalhomecare as $data)
           <tr>
             <td>{{$data->hari_praktek}}</td>

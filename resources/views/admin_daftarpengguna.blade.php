@@ -44,7 +44,7 @@
               @endif
             </td>
             <td>{{$data->email}}</td>
-            <td>{{$data->no_telfon_pasien}}</td>
+            <td>{{$data->no_telfon}}</td>
             <td>
               @if($data->id_roles=='1')
               <?php echo 'Pasien' ?> 
@@ -52,7 +52,13 @@
               <?php echo 'Perawat' ?>
               @endif
             </td>
-            <td>X</td>
+            <td>
+              @if($data->status_users=='nonaktif')
+                <a href="{{url('/ubahstatususers')}}/{{$data->id}}" class="label label-danger">Nonaktif</a>
+                @else
+                <span class="label label-success">Aktif</span>
+                @endif
+            </td>
           </tr>
           @endforeach
         </tbody>

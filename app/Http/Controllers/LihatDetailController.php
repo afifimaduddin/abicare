@@ -50,17 +50,17 @@ class LihatDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_jenis_perawatan)
+    public function show($id_homecare)
     {
         //
          $homecare = FormLayanan::query()
-        ->join('detail_homecare','jenis_perawatan.id_jenis_perawatan','=','detail_homecare.id_jenis_perawatan')
-        ->where('detail_homecare.id_jenis_perawatan',$id_jenis_perawatan)->get();
+        ->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
+        ->where('detail_homecare.id_homecare',$id_homecare)->get();
 
         $jadwal = FormLayanan::query()
-        ->join('detail_homecare','jenis_perawatan.id_jenis_perawatan','=','detail_homecare.id_jenis_perawatan')
+        ->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
         ->join('jadwal_homecare','detail_homecare.id_detail_perawatan','=','jadwal_homecare.id_detail_perawatan')
-        ->where('detail_homecare.id_jenis_perawatan',$id_jenis_perawatan)->get();
+        ->where('detail_homecare.id_homecare',$id_homecare)->get();
 
         return view('lihatdetail')
         ->with('homecare', $homecare)

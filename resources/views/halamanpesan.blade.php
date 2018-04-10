@@ -3,7 +3,7 @@
 @section('isi2')
 <section class="content">
   <div class="callout callout-success">
-    <h4>Selamat Datang di Abicare Indonesia :)</h4>
+    <h4>Selamat Datang di Abicare Indonesia</h4>
 
     <p>Silahkan pilih jenis layanan pemesanan</p>
   </div>

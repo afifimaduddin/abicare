@@ -16,8 +16,8 @@ class RiwayatPemesananController extends Controller
     public function index()
     {
         //
-         $pesanan = FormPesan::query()->join('jenis_perawatan','jenis_perawatan.id_jenis_perawatan','=','pemesanan.id_jenis_perawatan')
-         ->join('detail_homecare','detail_homecare.id_jenis_perawatan','=','jenis_perawatan.id_jenis_perawatan')
+         $pesanan = FormPesan::query()->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')
+         ->join('detail_homecare','detail_homecare.id_homecare','=','homecare.id_homecare')
          ->where('pemesanan.id_users',Auth::user()->id)->get();
 
         return view('riwayatpemesanan')->with('pesanan',$pesanan);

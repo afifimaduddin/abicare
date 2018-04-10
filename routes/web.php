@@ -118,10 +118,22 @@ Route::resource('admin_daftarpengguna', 'AdminDaftarPenggunaController');
 
 Route::resource('admin_jenislayanan', 'AdminJenisLayananController');
 
-Route::resource('admin_daftarpemesanan', 'AdminDaftarPemesananController');
+Route::resource('admin_pemesanan', 'AdminDaftarPemesananController');
+
+Route::resource('admin_mitrahomecare', 'AdminMitraHomecareController');
+
+Route::resource('detail_mitrahomecare', 'AdminDetailMitraController');
 
 Route::get('ubahstatus/{id}','PesananController@ubahstatus');
 
-//verify
-Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('ubahstatusditerima/{id}','PesananController@ubahstatusditerima');
+
+Route::get('ubahstatususers/{id}','AdminDaftarPenggunaController@ubahstatususers');
+
+//veifys
+Route::group(['middleware' => ['isVerified']], function () { });
+
+Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
+
+Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
 

@@ -4,17 +4,17 @@
 
 
   <?php
-  $id_jenis_perawatan="nggak ada";
+  $id_homecare="nggak ada";
   $tampilkaninfo = "none";
   $tampilkanform = "block";
   ?>
       <!-- <?php
-          // echo "data sebelum $id_jenis_perawatan";    
+          // echo "data sebelum $id_homecare";    
       ?> -->
 
       @foreach($homecare as $data)
       <?php
-      $id_jenis_perawatan=$data->id_jenis_perawatan;
+      $id_homecare=$data->id_homecare;
       $tampilkaninfo = "block";
       $tampilkanform = "none";
       ?>
@@ -65,7 +65,7 @@
       @endif
       <br>
         <!-- <?php
-          //echo $id_jenis_perawatan;    
+          //echo $id_homecare;    
         ?>
       -->
       <section style="display:<?php echo $tampilkaninfo ?>" class="content">
@@ -83,12 +83,12 @@
                 
                 <h3 class="widget-user-username">{{$data->nama_homecare}}</h3>
                 <h5 class="widget-user-desc">{{$data->alamat_homecare}}</h5>
-                <h5 class="widget-user-desc" value="{{$data->id_perawatan}}">{{$data->id_perawatan}}</h5>
+                <h5 class="widget-user-desc" value="{{$data->id_roles_jenis}}">{{$data->id_roles_jenis}}</h5>
               </div>
               <div class="widget-user-image">
                 <div class="box-footer">
                   <div class="col-md-2 col-md-offset-10">
-                    <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-defaul" ><b>Ubah</b></a>
+                    <a href="#" class="btn btn-primary btn-block " data-toggle="modal" data-target="#modal-defaul" ><b>Ubah</b></a>
                   </div>
                 </div>    
               </div>
@@ -148,14 +148,16 @@
                 <h3 class="box-title">Jadwal Homecare</h3>
               </div>
               <!-- /.box-header -->
-              <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
                   <tr>
                     <th>Hari Praktek</th>
                     <th>Jam Buka</th>
                     <th>Jam Tutup</th>
                     <th>Aksi</th>
                   </tr>
+                </thead>
                   @foreach($jadwalhomecare as $data)
                   <tr>
                     <td>{{$data->hari_praktek}}</td>
@@ -293,7 +295,7 @@
                           <option value="" disabled selected=""> <i>---Jenis Layanan---</i></option>
                           @foreach($role as $data)
 
-                          <option value="{{ $data->id_perawatan }}">{{ $data->nama_perawatan }}</option>
+                          <option value="{{ $data->id_roles_jenis }}">{{ $data->nama_perawatan }}</option>
                           
                           @endforeach
                         </select>
@@ -364,7 +366,7 @@
                 <div class="modal-body">
                   <div class="box-body">
                     @foreach($homecare as $data)
-                    <form role="form" action="{{route('formlayanan.update',$data->id_jenis_perawatan)}}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{route('formlayanan.update',$data->id_homecare)}}" method="POST" enctype="multipart/form-data">
                       <input type="hidden" name="_method" value="PATCH">
                       {{ csrf_field() }}
                       {{method_field('PATCH')}}
@@ -390,7 +392,7 @@
                             <option value="" disabled selected=""> <i>---Jenis Layanan---</i></option>
                             @foreach($role as $record)
 
-                            <option value="{{ $record->id_perawatan }}" <?php if($record->id_perawatan==$data->id_perawatan){echo "selected";} ?>>{{ $record->nama_perawatan }}</option>
+                            <option value="{{ $record->id_roles_jenis }}" <?php if($record->id_roles_jenis==$data->id_roles_jenis){echo "selected";} ?>>{{ $record->nama_perawatan }}</option>
                             
                             @endforeach
                           </select>

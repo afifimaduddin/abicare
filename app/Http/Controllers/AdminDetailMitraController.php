@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pemesanan;
+use App\FormLayanan;
+use App\DetailHomecare;
 
-class AdminDaftarPemesananController extends Controller
+class AdminDetailMitraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,10 @@ class AdminDaftarPemesananController extends Controller
     public function index()
     {
         //
-        $pesan = Pemesanan::query()
-        ->join('users','users.id','=','pemesanan.id_users')
-        ->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')->get();
+        $detailmitra = DetailHomecare::all()->where('id_users',Auth::user()->id);
 
-        return view('admin_pemesanan')->with('pesan',$pesan);
+        return view('detail_mitrahomecare')
+        ->with('detailmitra', $detailmitra);
     }
 
     /**
@@ -49,9 +49,21 @@ class AdminDaftarPemesananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_homecare)
     {
         //
+        $detailmitra = FormLayanan::query()
+        ->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
+        ->where('detail_homecare.id_homecare',$id_homecare)->get();
+
+        $jadwal = FormLayanan::query()
+        ->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
+        ->join('jadwal_homecare','detail_homecare.id_detail_perawatan','=','jadwal_homecare.id_detail_perawatan')
+        ->where('detail_homecare.id_homecare',$id_homecare)->get();
+
+        return view('detail_mitrahomecare')
+        ->with('detailmitra', $detailmitra)
+        ->with('jadwal',$jadwal);
     }
 
     /**

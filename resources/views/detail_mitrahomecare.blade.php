@@ -1,13 +1,13 @@
-@extends('halamanpasien')
+@extends('halamanadmin')
 
-@section('isi2')
+@section('isi')
 <section class="content">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <!-- Widget: user widget style 1 -->
       <div class="box box-widget widget-user-2">
         <!-- Add the bg color to the header using any of the bg-* classes -->
-        @foreach($homecare as $data)
+        @foreach($detailmitra as $data)
         <div class="widget-user-header bg-green">
           <div class="widget-user-image">
             <img class="img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}">
@@ -26,7 +26,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      @foreach($homecare as $data)
+      @foreach($detailmitra as $data)
       <!-- Profile Image -->
       <div class="box box-success">
         <div class="box-body box-profile">
@@ -72,12 +72,12 @@
         <div class="box-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
-            <tr>
-              <th>Hari Praktek</th>
-              <th>Jam Buka</th>
-              <th>Jam Tutup</th>
-            </tr>
-          </thead>
+              <tr>
+                <th>Hari Praktek</th>
+                <th>Jam Buka</th>
+                <th>Jam Tutup</th>
+              </tr>
+            </thead>
             @foreach($jadwal as $data)
             <tr>
               <td>{{$data->hari_praktek}}</td>
@@ -91,12 +91,18 @@
         
         <!-- /.box-body -->
       </div>
-      @foreach($homecare as $data)
-      <a href="{{url ('/formpesan/')}}/{{$data->id_homecare}}"> 
-        <button type="" class="pull-right btn-lg btn-danger" id="">Pesan Homecare
-          <i class="fa fa-arrow-circle-right"></i></button>
-        </a>    
-        @endforeach
-      </section>
-
-      @append
+    </section>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+    @append

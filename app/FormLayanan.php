@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class FormLayanan extends Model
 {
     //
-    protected $table = 'jenis_perawatan';
-    protected $primaryKey = 'id_jenis_perawatan';
+    protected $table = 'homecare';
+    protected $primaryKey = 'id_homecare';
 
 
     	

@@ -1,10 +1,22 @@
 @extends('halamanpasien')
 
 @section('isi2')
+<section class="content-header">
+  <h1>
+
+    <small></small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Pilih Layanan</a></li>
+    <li class="active">Daftar Homecare</li>
+  </ol>
+</section>
 <section class="content">
   <div class="row">  
     <td>
-      <div class="col-md-1"><button type="button" class="btn btn-block btn-success btn-sm">Kembali</button></div> 
+      <a href="{{url('halamanpesan')}}">
+      <div class="col-md-1"><button type="button" class="btn btn-block btn-success glyphicon glyphicon-chevron-left"></button></div> 
+      </a>
     </td>
   </div>  
   <p></p>
@@ -13,20 +25,10 @@
       <div class="box box-success">
         <div class="box-header">
           <h3 class="box-title">Daftar Homecare</h3>
-
-          <div class="box-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-              <div class="input-group-btn">
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
-          <table id="example1" class="table table-hover">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
             <tr>
               <th>No</th>
               <th>Foto</th>
@@ -34,14 +36,15 @@
               <th>Alamat Homecare</th>
               <th>Aksi</th>
             </tr>
+          </thead>
             @foreach($homecare as $data)
             <tr>
-              <td>{{$data->id_jenis_perawatan}}</td>
+              <td>{{$data->id_homecare}}</td>
               <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
               <td>{{$data->nama_homecare}}</td>
               <td>{{$data->alamat_homecare}}</td>
               <td>
-                <a href="{{url ('/lihatdetail/')}}/{{$data->id_jenis_perawatan}}" class="btn btn-primary" >Lihat detail</a></a>
+                <a href="{{url ('/lihatdetail/')}}/{{$data->id_homecare}}" class="btn btn-primary" >Lihat detail</a></a>
               </td>
             </tr>
             @endforeach
@@ -55,9 +58,10 @@
   </section>
   <script>
 
-   <script>
-   $(function () {
-    $('#example1').DataTable({
+  <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : false,
@@ -65,6 +69,7 @@
       'info'        : true,
       'autoWidth'   : false
     })
-  </script>
+  })
+</script>
   @append
     <!-- /.content -->

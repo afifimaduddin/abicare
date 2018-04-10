@@ -36,6 +36,16 @@ class AdminDaftarPenggunaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function ubahstatususers($id)
+    {
+        $user = User::find($id);
+        $user->status_users = 'aktif';
+        $user->save();
+
+        return redirect('admin_daftarpengguna');
+    }
+
     public function store(Request $request)
     {
         //

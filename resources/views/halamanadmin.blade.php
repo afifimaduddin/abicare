@@ -15,7 +15,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{url('asset/dist/css/AdminLTE.min.css')}}">
 
-  <link rel="stylesheet" href="{{url('asset/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{url('asset/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}"> -->
   <!-- AdminLTE Skins. Choose a skin from the css/skins
    folder instead of downloading all of them to reduce the load. -->
    <link rel="stylesheet" href="{{url('asset/dist/css/skins/_all-skins.min.css')}}">
@@ -86,15 +86,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('asset/dist/js/demo.js')}}"></script>
 
-<script src="{{url('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{url('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-
 <script src="{{url('sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{url('sweetalert/moment.min.js')}}"></script>
 <script src="{{url('sweetalert/promise.min.js')}}"></script>
 
 <script src="{{url('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
 
 </head>
 <body class="hold-transition skin-green sidebar-mini">
@@ -121,7 +119,7 @@
             <ul class="nav navbar-nav">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                 <span class="caret"></span>
+                  {{ \Illuminate\Support\Facades\Auth::user()->name }} <span class="caret"></span>
                </a>
 
                <ul class="dropdown-menu">
@@ -148,7 +146,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
      <div class="user-panel">
         <div class="pull-left image">
-          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}" alt="User Image">
+          <img class="profile-user-img img-responsive img-circle" src="{{url('/asset/dist/img/user8-128x128.jpg')}}" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Admin Abicare</p>
@@ -168,28 +166,28 @@
     <ul class="sidebar-menu" data-widget="treeview">
 
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="{{url('/halamanadmin')}}">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
-      <li class="active treeview">
+      <li class="treeview">
         <a href="{{url('/admin_daftarpengguna')}}">
           <i class="fa fa-users"></i> <span>Daftar Pengguna</span>
         </a>
       </li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="{{url('/admin_pemesanan')}}">
           <i class="fa fa-cart-plus"></i><span>Daftar Pemesanan</span>
         </a>
       </li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="{{url('/admin_mitrahomecare')}}">
           <i class="fa fa-hospital-o"></i><span>Mitra Homecare</span>
         </a>
       </li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="{{url('/admin_jenislayanan')}}">
           <i class="fa fa-medkit"></i><span>Jenis Layanan</span>
         </a>
@@ -468,6 +466,22 @@
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
   })();
+</script>
+
+<script>
+    //ini untuk kalau side tree nya di click bakal nambahin class active
+    var url = window.location;
+    $('ul.sidebar-menu a').filter(function () {
+        return this.href == url;
+    }).parent().addClass('active');
+
+    // untuk bagian tree view nya
+    $('ul.treeview-menu a').filter(function() {
+        return this.href == url;
+    }).closest('.treeview').addClass('active');
+
+
+
 </script>
 <!--End of Tawk.to Script-->
 </body>

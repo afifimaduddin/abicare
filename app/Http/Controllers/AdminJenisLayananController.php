@@ -46,7 +46,7 @@ class AdminJenisLayananController extends Controller
        return redirect('admin_jenislayanan')->with(session()->flash('store', ''));
    }
 
-    /**
+    /** 
      * Display the specified resource.
      *
      * @param  int  $id

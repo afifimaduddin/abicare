@@ -18,7 +18,7 @@
 
 <section class="content">
   <div class="callout callout-success">
-    <h4>Lanjut :)</h4>
+    <h4></h4>
 
     <p>Silahkan isi form dibawah untuk mengisi detail homecare</p>
   </div>

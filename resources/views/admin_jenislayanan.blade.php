@@ -31,7 +31,7 @@
 @endif
 
 <section class="content-header">
-  <a class="btn btn-primary fa fa-plus" data-toggle="" data-target=""> Tambah</a>
+  <a class="btn btn-primary glyphicon glyphicon-plus" data-toggle="modal" data-target="#modal-tambah"> Tambah</a>
   <h1>
     <small></small>
   </h1>
@@ -59,70 +59,100 @@
         <tbody>
           @foreach($jenis as $data)
           <tr>
-            <td>{{$data->id_perawatan}}</td>
+            <td>{{$data->id_roles_jenis}}</td>
             <td>{{$data->nama_perawatan}}</td>
             <td>
               <form method="" action="">
-                <a class="btn btn-primary fa fa-edit" data-toggle="modal" data-target="#modal-default"> Ubah</a>
+                <a class="btn btn-primary glyphicon glyphicon-edit" data-toggle="modal" data-target="#modal-default{{$data->id_roles_jenis}}"> Ubah</a>
               </form>
             </td>
           </tr>
-          @endforeach
-        </tbody>
-      </table>
+          <div class="modal fade" id="modal-default{{$data->id_roles_jenis}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Ubah Jenis Layanan</h4>
+
+                    <form role="form" action="{{ route('admin_jenislayanan.update',$data->id_roles_jenis) }}" method="POST">
+                      <input type="hidden" name="_method" value="PATCH">
+                      {{ csrf_field() }}
+                      {{method_field('PATCH')}}
+
+                      <div class="form-group">
+                        <label>Jenis Layanan</label>
+                        <input type="string" class="form-control" name="jenis_layanan" id="exampleInputEmail1" placeholder="Jenis Layanan" value="{{$data->nama_perawatan}}">
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                      </div>
+                    </form>
+
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+              </div>
+              <!-- /.modal -->
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
     </div>
-    <!-- /.box-body -->
+    <!-- /.col -->
   </div>
   <!-- /.box -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.box -->
-<!-- /.row -->
-<div class="modal fade" id="modal-default">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Default Modal</h4>
-        
-          <form role="form" action="{{ route('admin_jenislayanan.update',$data->id_perawatan) }}" method="POST">
-            <input type="hidden" name="_method" value="PATCH">
-            {{ csrf_field() }}
-            {{method_field('PATCH')}}
+  <!-- /.row -->
+  <div class="modal fade" id="modal-tambah">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Tambah Jenis Layanan</h4>
 
-            <div class="form-group">
-              <label>Jenis Layanan</label>
-              <input type="string" class="form-control" name="jenis_layanan" id="exampleInputEmail1" placeholder="Jenis Layanan" value="{{$data->nama_perawatan}}">
-            </div>
+            <form role="form" action="{{ route('admin_jenislayanan.store') }}" method="POST">
+              <input type="hidden" name="_method" value="PATCH">
+              {{ csrf_field() }}
+              {{method_field('PATCH')}}
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-          </form>
-         
+              <div class="form-group">
+                <label>Jenis Layanan</label>
+                <input type="text" class="form-control" name="jenis_layanan" placeholder="Jenis Layanan">
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+                <input type="submit" class="btn btn-primary" value="Simpan">
+              </div>
+            </form>
+
+          </div>
+          <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
       </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->s
+      <!-- /.modal -->
 
-      </section>
-      <script>
-        $(function () {
-          $('#example1').DataTable()
-          $('#example2').DataTable({
-            'paging'      : true,
-            'lengthChange': false,
-            'searching'   : false,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : false
-          })
+    </section>
+    <script>
+      $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+          'paging'      : true,
+          'lengthChange': false,
+          'searching'   : false,
+          'ordering'    : true,
+          'info'        : true,
+          'autoWidth'   : false
         })
-      </script>
-      @append
+      })
+    </script>
+    @append
     <!-- /.content -->

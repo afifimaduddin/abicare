@@ -3,15 +3,15 @@
 @section('isi')
 
 <section class="content-header">
-      <h1>
-       
-        <small></small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
-        <li class="active">Daftar Pemesanan</li>
-      </ol>
-    </section>
+  <h1>
+   
+    <small></small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+    <li class="active">Daftar Pemesanan</li>
+  </ol>
+</section>
 <section class="content">
   <div class="box">
     <div class="box-header">
@@ -23,7 +23,7 @@
         <thead>
           <tr>
             <th>Nama Homecare</th>
-            <th>Nama Pengguna</th>
+            <th>Nama Pasien</th>
             <th>Tanggal Pemesanan</th>
             <th>Jam Pemesanan</th>
             <th>Keluhan</th>
@@ -31,15 +31,24 @@
           </tr>
         </thead>
         <tbody>
+          @foreach($pesan as $data)
           <tr>
-            <td>Shafira Homecare</td>
-            <td>Shafira Fitrianissa
+            <td>{{$data->nama_homecare}}</td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->tanggal_pemesanan}}</td>
+            <td>{{$data->jam_pemesanan}}</td>
+            <td>{{$data->keluhan}}</td>
+            <td>
+              @if($data->status=='proses')
+                <span class="label label-danger">Proses</span>
+                @elseif($data->status=='diterima')
+                <span class="label label-warning">Pesanan Diterima</span>
+                @else
+                <span class="label label-success">Selesai</span>
+                @endif
             </td>
-            <td>09/05/2018</td>
-            <td> 10.00</td>
-            <td>Sakit kepala dan migrain</td>
-            <td>Selesai</td>
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

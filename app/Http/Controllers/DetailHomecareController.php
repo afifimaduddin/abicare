@@ -50,8 +50,8 @@ class DetailHomecareController extends Controller
         
         $detail = new DetailHomecare;
         $detail->deskripsi_homecare = $request->deskripsi_homecare;
-        // $detail->id_jenis_perawatan = FormLayanan::all()->id_jenis_perawatan;
-        $detail->id_jenis_perawatan = DB::table('jenis_perawatan')->where('id_users', Auth::user()->id )->first()->id_jenis_perawatan;
+        // $detail->id_homecare = FormLayanan::all()->id_homecare;
+        $detail->id_homecare = DB::table('homecare')->where('id_users', Auth::user()->id )->first()->id_homecare;
         $detail->id_users = Auth::user()->id;
         $detail->email_homecare = $request->email_homecare;
         $detail->no_telfon = $request->no_telfon;
@@ -98,8 +98,8 @@ class DetailHomecareController extends Controller
         //
        $detail = DetailHomecare::find($id);
        $detail->deskripsi_homecare = $request->deskripsi_homecare;
-        // $detail->id_jenis_perawatan = FormLayanan::all()->id_jenis_perawatan;
-       $detail->id_jenis_perawatan = DB::table('jenis_perawatan')->where('id_users', Auth::user()->id )->first()->id_jenis_perawatan;
+        // $detail->id_homecare = FormLayanan::all()->id_homecare;
+       $detail->id_homecare = DB::table('homecare')->where('id_users', Auth::user()->id )->first()->id_homecare;
        $detail->id_users = Auth::user()->id;
        $detail->email_homecare = $request->email_homecare;
        $detail->no_telfon = $request->no_telfon;

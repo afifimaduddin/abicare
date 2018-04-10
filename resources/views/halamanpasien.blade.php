@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{url('asset/bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{url('asset/dist/css/AdminLTE.min.css')}}">
+
   <!-- AdminLTE Skins. Choose a skin from the css/skins
    folder instead of downloading all of them to reduce the load. -->
    <link rel="stylesheet" href="{{url('asset/dist/css/skins/_all-skins.min.css')}}">
@@ -83,13 +84,16 @@
 <script src="{{url('asset/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('asset/dist/js/demo.js')}}"></script>
-
 <script src="{{url('asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
 
 <script src="{{url('sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{url('sweetalert/moment.min.js')}}"></script>
 <script src="{{url('sweetalert/promise.min.js')}}"></script>
+
+
+
 
 </head>
 <body class="hold-transition skin-green sidebar-mini">
@@ -144,25 +148,25 @@
       <ul class="sidebar-menu" data-widget="treeview">
 
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url('/halamanpasien')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url('/profilepasien')}}">
             <i class="fa fa-user"></i> <span>Profile</span>
           </a>
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url ('/halamanpesan')}}">
             <i class="fa fa-plus-square"></i> <span>Pilih Layanan</span>
           </a>
         </li>
         
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{url ('/riwayatpemesanan')}}">
             <i class="fa fa-book"></i><span>Riwayat Pemesanan</span>
           </a>
@@ -494,6 +498,36 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 <!--End of Tawk.to Script-->
+
+<script>
+    //ini untuk kalau side tree nya di click bakal nambahin class active
+    var url = window.location;
+    $('ul.sidebar-menu a').filter(function () {
+        return this.href == url;
+    }).parent().addClass('active');
+
+    // untuk bagian tree view nya
+    $('ul.treeview-menu a').filter(function() {
+        return this.href == url;
+    }).closest('.treeview').addClass('active');
+
+
+
+</script>
 </body>
 </html>

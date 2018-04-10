@@ -24,21 +24,6 @@
       autoclose: true
     })
 
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass   : 'iradio_minimal-blue'
-    })
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass   : 'iradio_minimal-red'
-    })
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass   : 'iradio_flat-green'
-    })
 
     //Timepicker
     $('.timepicker').timepicker({
@@ -64,11 +49,12 @@
   @endif  
 
   <div class="row">
+    <?php echo date('G:i:s') ?>
     <!-- left column -->
     <div class="col-md-6">
       <div class="box box-success">
         <div class="box-header">
-          <h3 class="box-title">Silahkan Pesan Sesuai Jadwal Homecare :)</h3>
+          <h3 class="box-title">Silahkan Pesan Sesuai Jadwal Homecare</h3>
         </div>
 
         <form role="form" action="{{ route('formpesan.store') }}" method="POST">
@@ -77,7 +63,7 @@
             <!-- Date -->
             @foreach($homecare as $data)
             <h3 class="widget-user-username">{{$data->nama_homecare}}</h3>
-            <input type="hidden" name="id_jenis_perawatan" value="{{$data->id_jenis_perawatan}}">
+            <input type="hidden" name="id_homecare" value="{{$data->id_homecare}}">
             @endforeach
             <div class="form-group">
               <label>Tanggal Pemesanan:</label>
@@ -98,8 +84,8 @@
                 <label>Jam Pemesanan:</label>
 
                 <div class="input-group">
-                  <input name="jam_pemesanan" type="time" class="form-control timepicker">
-
+                  <input name="jam_pemesanan" type="time" class="form-control timepicker" id="jadwal">
+                  <!-- <input name="jam_waktu" type="hidden" class="form-control" id="jadwal_time"> -->
                   <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                   </div>
@@ -136,13 +122,15 @@
             <h3 class="box-title">Jadwal Homecare</h3>
           </div>
           <!-- /.box-header -->
-          <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-              <tr>
-                <th>Hari Praktek</th>
-                <th>Jam Buka</th>
-                <th>Jam Tutup</th>
-              </tr>
+          <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Hari Praktek</th>
+                  <th>Jam Buka</th>
+                  <th>Jam Tutup</th>
+                </tr>
+              </thead>
               @foreach($jadwal as $data)
               <tr>
                 <td>{{$data->hari_praktek}}</td>
@@ -155,5 +143,23 @@
           </div>
           <!-- /.row -->
         </section>
+        <script>
+          $('#jadwal').change(function() {
+           $('#jadwal_time').val($('#jadwal').val());
+         });
+          $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+              'paging'      : true,
+              'lengthChange': false,
+              'searching'   : false,
+              'ordering'    : true,
+              'info'        : true,
+              'autoWidth'   : false
+            })
+          })
+        </script>
+
+
         @append
     <!-- /.content -->

@@ -90,9 +90,9 @@ public function store(Request $request)
 
     $tanggal = $this->hari_ini($request->tanggal_pemesanan);
 
-    $cek = FormLayanan::query()->join('detail_homecare','jenis_perawatan.id_jenis_perawatan','=','detail_homecare.id_jenis_perawatan')
+    $cek = FormLayanan::query()->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
          ->join('jadwal_homecare','detail_homecare.id_detail_perawatan','=','jadwal_homecare.id_detail_perawatan')
-         ->where('jenis_perawatan.id_jenis_perawatan',$request->id_jenis_perawatan)
+         ->where('homecare.id_homecare',$request->id_homecare)
          ->where('jadwal_homecare.hari_praktek',$tanggal)
          ->where('jadwal_homecare.start','<=', $request->jam_pemesanan)
          ->where('jadwal_homecare.end','>=', $request->jam_pemesanan)->get()->count();
@@ -100,7 +100,7 @@ public function store(Request $request)
             //Jadwal tersedia
             $pesan = new FormPesan;
             $pesan->id_users = Auth::user()->id;
-            $pesan->id_jenis_perawatan = $request->id_jenis_perawatan;
+            $pesan->id_homecare = $request->id_homecare;
             $pesan->tanggal_pemesanan = $request->tanggal_pemesanan;
             $pesan->jam_pemesanan = $request->jam_pemesanan;
             $pesan->keluhan = $request->keluhan;
@@ -111,7 +111,7 @@ public function store(Request $request)
         }
         else{
             //Jadwal tidak tersedia
-            return redirect('formpesan/'.$request->id_jenis_perawatan)->with(session()->flash('error', ''));
+            return redirect('formpesan/'.$request->id_homecare)->with(session()->flash('error', ''));
         }
 
     
@@ -126,17 +126,17 @@ public function store(Request $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_jenis_perawatan)
+    public function show($id_homecare)
     {
         //
         $homecare = FormLayanan::query()
-        ->join('detail_homecare','jenis_perawatan.id_jenis_perawatan','=','detail_homecare.id_jenis_perawatan')
-        ->where('detail_homecare.id_jenis_perawatan',$id_jenis_perawatan)->get();
+        ->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
+        ->where('detail_homecare.id_homecare',$id_homecare)->get();
 
         $jadwal = FormLayanan::query()
-        ->join('detail_homecare','jenis_perawatan.id_jenis_perawatan','=','detail_homecare.id_jenis_perawatan')
+        ->join('detail_homecare','homecare.id_homecare','=','detail_homecare.id_homecare')
         ->join('jadwal_homecare','detail_homecare.id_detail_perawatan','=','jadwal_homecare.id_detail_perawatan')
-        ->where('detail_homecare.id_jenis_perawatan',$id_jenis_perawatan)->get();
+        ->where('detail_homecare.id_homecare',$id_homecare)->get();
 
         return view('formpesan')
         ->with('homecare', $homecare)

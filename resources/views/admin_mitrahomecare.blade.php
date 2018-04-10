@@ -13,60 +13,40 @@
       </ol>
     </section>
 <section class="content">
-  <div class="box">
-    <div class="box-header">
-      <h3 class="box-title">Daftar Pengguna</h3>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-success">
+        <div class="box-header">
+          <h3 class="box-title">Mitra Homecare</h3>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>Foto</th>
+              <th>Nama Homecare</th>
+              <th>Alamat Homecare</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+            @foreach($mitra as $data)
+            <tr>
+              <td>{{$data->id_homecare}}</td>
+              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
+              <td>{{$data->nama_homecare}}</td>
+              <td>{{$data->alamat_homecare}}</td>
+              <td>
+                <a href="{{url ('/detail_mitrahomecare/')}}/{{$data->id_homecare}}" class="btn btn-primary" >Lihat detail</a></a>
+              </td>
+            </tr>
+            @endforeach
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
     </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Nama Pengguna</th>
-            <th>Jenis Kelamin</th>
-            <th>E-Mail</th>
-            <th>Roles</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Trident</td>
-            <td>Internet
-              Explorer 4.0
-            </td>
-            <td>Win 95+</td>
-            <td> 4</td>
-            <td>X</td>
-          </tr>
-          <tr>
-            <td>Trident</td>
-            <td>Internet
-              Explorer 5.0
-            </td>
-            <td>Win 95+</td>
-            <td>5</td>
-            <td>C</td>
-          </tr>
-          <tr>
-            <td>Trident</td>
-            <td>Internet
-              Explorer 5.5
-            </td>
-            <td>Win 95+</td>
-            <td>5.5</td>
-            <td>A</td>
-          </tr>
-          
-        </tbody>
-      </table>
-    </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
-</div>
-<!-- /.col -->
-</div>
 <!-- /.box -->
 <!-- /.row -->
 </section>

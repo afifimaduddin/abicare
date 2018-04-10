@@ -60,7 +60,7 @@ class FormLayananController extends Controller
         
         $layanan = new FormLayanan;
         $layanan->nama_homecare = $request->nama_homecare;
-        $layanan->id_perawatan = $request->jenis_layanan;
+        $layanan->id_roles_jenis = $request->jenis_layanan;
         $layanan->foto_homecare = $request->foto;
         $layanan->id_users = Auth::user()->id;
         $layanan->alamat_homecare = $request->alamat_homecare;
@@ -117,7 +117,7 @@ class FormLayananController extends Controller
 
         $layanan = FormLayanan::find($id);
         $layanan->nama_homecare = $request->nama_homecare;
-        $layanan->id_perawatan = $request->jenis_layanan;
+        $layanan->id_roles_jenis = $request->jenis_layanan;
         $layanan->foto_homecare = $request->foto;
         $layanan->alamat_homecare = $request->alamat_homecare;
         if($request->hasFile('foto') && $request->file('foto')->isValid()) {

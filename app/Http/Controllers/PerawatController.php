@@ -10,9 +10,9 @@ class PerawatController extends Controller
 {
     public function halperawat()
     {
-        $jumlah = FormPesan::query()->join('jenis_perawatan','jenis_perawatan.id_jenis_perawatan','=','pemesanan.id_jenis_perawatan')
-         ->join('detail_homecare','detail_homecare.id_jenis_perawatan','=','jenis_perawatan.id_jenis_perawatan')
-         ->join('users','users.id','=','jenis_perawatan.id_users')
+        $jumlah = FormPesan::query()->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')
+         ->join('detail_homecare','detail_homecare.id_homecare','=','homecare.id_homecare')
+         ->join('users','users.id','=','homecare.id_users')
          ->join('users as u','u.id','=','pemesanan.id_users')
          ->where('u.id_roles',1)
          ->where('users.id',Auth::user()->id)->get()->count();

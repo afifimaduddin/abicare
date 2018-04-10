@@ -48,8 +48,8 @@ class HalamanPesanController extends Controller
     {
         //
         $homecare = FormLayanan::query()
-        ->join('roles_jenis','roles_jenis.id_perawatan','=','jenis_perawatan.id_perawatan')
-        ->where('jenis_perawatan.id_perawatan', $id)->get();
+        ->join('roles_jenis','roles_jenis.id_roles_jenis','=','homecare.id_roles_jenis')
+        ->where('homecare.id_roles_jenis', $id)->get();
 
         return view('daftarhomecare')->with('homecare', $homecare);
     }

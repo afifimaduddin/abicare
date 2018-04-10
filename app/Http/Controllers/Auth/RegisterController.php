@@ -30,24 +30,24 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/halamanperawat';
-    public function redirectPath()
-   {
-       if (Auth::user() == true && Auth::user()->id_roles == 1 && Auth::user()->status=="aktif")
-       {
+    protected $redirectTo = '/login';
+   //  public function redirectPath()
+   // {
+   //     if (Auth::user() == true && Auth::user()->id_roles == 1 )
+   //     {
         
-           return '/halamanpasien';
-       }elseif (Auth::user() == true && Auth::user()->id_roles == 2 && Auth::user()->status=="aktif")
-       {
-            return '/halamanperawat';
-       }elseif (Auth::user() == true && Auth::user()->id_roles == 3)
-       {
-           return '/halamanadmin';
-       }else
-       {
-        return redirect('/login');
-       }
-    } 
+   //         return '/halamanpasien';
+   //     }elseif (Auth::user() == true && Auth::user()->id_roles == 2 )
+   //     {
+   //          return '/halamanperawat';
+   //     }elseif (Auth::user() == true && Auth::user()->id_roles == 3)
+   //     {
+   //         return '/halamanadmin';
+   //     }else
+   //     {
+   //      return redirect('/login');
+   //     }
+   //  } 
        
    
     /**
@@ -98,40 +98,6 @@ class RegisterController extends Controller
             
         ]);
         // redirect('/perawat');
-
-        $verifyUser = VerifyUser::create([
-            'user_id' => $user->id,
-            'token' => str_random(40)
-        ]);
- 
-        Mail::to($user->email)->send(new VerifyMail($user));
- 
-        return $user;
-    }
-
-    public function verifyUser($token)
-    {
-        $verifyUser = VerifyUser::where('token', $token)->first();
-        if(isset($verifyUser) ){
-            $user = $verifyUser->user;
-            if(!$user->verified) {
-                $verifyUser->user->verified = 1;
-                $verifyUser->user->save();
-                $status = "Your e-mail is verified. You can now login.";
-            }else{
-                $status = "Your e-mail is already verified. You can now login.";
-            }
-        }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
-        }
- 
-        return redirect('/login')->with('status', $status);
-    }
-
-    protected function registered(Request $request, $user)
-    {
-        $this->guard()->logout();
-        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
     }
 
 }
