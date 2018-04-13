@@ -124,7 +124,7 @@
 
               <div class="form-group">
                 <label>Jenis Layanan</label>
-                <input type="text" class="form-control" name="jenis_layanan" placeholder="Jenis Layanan">
+                <input type="string" class="form-control" name="jenis_layanan" placeholder="Jenis Layanan">
               </div>
 
               <div class="modal-footer">

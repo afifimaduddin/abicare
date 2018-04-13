@@ -37,7 +37,7 @@
               <td>{{$data->nama_homecare}}</td>
               <td>{{$data->alamat_homecare}}</td>
               <td>
-                <a href="{{url ('/detail_mitrahomecare/')}}/{{$data->id_homecare}}" class="btn btn-primary" >Lihat detail</a></a>
+                <a href="{{url ('/detail_mitrahomecare/')}}/{{$data->id_homecare}}" class="btn btn-primary" >Lihat detail</a>
               </td>
             </tr>
             @endforeach

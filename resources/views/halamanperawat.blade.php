@@ -162,6 +162,12 @@
             <i class="fa fa-archive"></i><span>Daftar Pesanan</span>
           </a>
         </li>
+
+        <li class="treeview">
+          <a href="{{url ('/perawattersedia')}}">
+            <i class="fa fa-user-md"></i><span>Perawat Tersedia</span>
+          </a>
+        </li>
       </ul>
     </aside>
 

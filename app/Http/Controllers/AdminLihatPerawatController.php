@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\FormLayanan;
-use App\User;
-use Auth;
+use App\TambahPerawat;
 
-class ProfilPasienController extends Controller
+class AdminLihatPerawatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class ProfilPasienController extends Controller
      */
     public function index()
     {
-        $profil = User::all()->where('id', Auth::user()->id)->where('id_roles',1);
-        return view('profilepasien')->with('profil',$profil);
+        //
+        
     }
 
     /**
@@ -50,6 +48,8 @@ class ProfilPasienController extends Controller
     public function show($id)
     {
         //
+        $tambahperawat = TambahPerawat::all()->where('id_homecare',$id);
+        return view('admin_pemesanan_perawat')->with('tambahperawat',$tambahperawat);
     }
 
     /**
@@ -73,24 +73,6 @@ class ProfilPasienController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $profil = User::find($id);
-        $profil->name = $request->nama_pasien;
-        $profil->email = $request->email_pasien;
-        $profil->id = Auth::user()->id;
-        $profil->foto = $request->foto;
-        $profil->no_telfon = $request->no_telfon;
-        $profil->tanggal_lahir = $request->tanggal_lahir;
-        $profil->jenis_kelamin = $request->jenis_kelamin;
-        if($request->hasFile('foto') && $request->file('foto')->isValid()) {
-           $destinationPath = 'public/asset/dist/img';
-           $extension = $request->foto->extension();
-           $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-           $request->foto->storeAs($destinationPath, $fileName);
-           $profil->foto_homecare = $fileName;
-        }
-        $profil->save();
-
-        return redirect('profilepasien')->with(session()->flash('update', ''));
     }
 
     /**

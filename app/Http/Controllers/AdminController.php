@@ -36,4 +36,8 @@ class AdminController extends Controller
     {
         return view('admin_jenislayanan');
     }
+    public function lihat()
+    {
+        return view('admin_pemesanan_perawat');
+    }
 }

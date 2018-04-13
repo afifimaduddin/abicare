@@ -111,8 +111,7 @@ class JadwalHomecareController extends Controller
     public function destroy($id)
     {
         //
-        $jadwal = JadwalHomecare::find($id);
-        $jadwal->delete();
+        $jadwal = JadwalHomecare::find($id)->delete();
 
         return redirect('formlayanan');
     }

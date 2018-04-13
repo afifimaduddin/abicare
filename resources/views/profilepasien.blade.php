@@ -37,7 +37,7 @@
       <div class="box box-success">
         <div class="box-body box-profile">
           @foreach($profil as $data)
-          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_pasien}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
+          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
 
           <h3 class="profile-username text-center">{{$data->name}}</h3>
 
@@ -110,7 +110,7 @@
       <div class="box-body">
         <div class="form-group">
           <label for="exampleInputFile">Foto Profil</label>
-          <input class="form-control" type="file" id="exampleInputFile" name="foto">
+          <input class="form-control" type="file" id="exampleInputFile" name="foto" value="{{$data->foto}}">
 
           <p class="help-block">Maksimal file 1 MB</p>
           <div class="form-group">
@@ -134,7 +134,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">No Telfon</label>
-            <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="Nomor Telepon" value="{{$data->no_telfon_pasien}}">
+            <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="Nomor Telepon" value="{{$data->no_telfon}}">
           </div>
         </div>
         @endforeach

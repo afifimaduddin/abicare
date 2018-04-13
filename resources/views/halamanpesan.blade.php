@@ -1,6 +1,15 @@
 @extends('halamanpasien')
 
 @section('isi2')
+<section class="content-header">
+  <h1>
+    Pilih Layanan
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Pasien</a></li>
+    <li class="active">Pilih Layanan</li>
+  </ol>
+</section>
 <section class="content">
   <div class="callout callout-success">
     <h4>Selamat Datang di Abicare Indonesia</h4>

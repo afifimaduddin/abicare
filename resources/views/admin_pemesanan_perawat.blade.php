@@ -9,46 +9,30 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
-    <li class="active">Daftar Pemesanan</li>
+    <li class="active">Daftar Perawat</li>
   </ol>
 </section>
 <section class="content">
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Daftar Pemesanan</h3>
+      <h3 class="box-title">Daftar Perawat</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>Nama Homecare</th>
+            <th>Foto Perawat</th>
             <th>Nama Perawat</th>
-            <th>Nama Pasien</th>
-            <th>Tanggal Pemesanan</th>
-            <th>Jam Pemesanan</th>
-            <th>Keluhan</th>
-            <th>Status Pemesanan</th>
+            <th>Jenis Kelamin</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($pesan as $data)
+          @foreach($tambahperawat as $data)
           <tr>
-            <td>{{$data->nama_homecare}}</td>
-            <td><a href="{{url('admin_pemesanan_perawat')}}/{{$data->id_homecare}}" class="btn btn-primary">Lihat Perawat</a></td>
-            <td>{{$data->name}}</td>
-            <td>{{$data->tanggal_pemesanan}}</td>
-            <td>{{$data->jam_pemesanan}}</td>
-            <td>{{$data->keluhan}}</td>
-            <td>
-              @if($data->status=='proses')
-                <span class="label label-danger">Proses</span>
-                @elseif($data->status=='diterima')
-                <span class="label label-warning">Pesanan Diterima</span>
-                @else
-                <span class="label label-success">Selesai</span>
-                @endif
-            </td>
+            <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_perawat}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
+            <td>{{$data->nama_perawat}}</td>
+            <td>{{$data->jenis_kelamin}}</td>
           </tr>
           @endforeach
         </tbody>

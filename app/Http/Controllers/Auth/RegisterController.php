@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Auth;
 use App\VerifyUser;
+use App\Mail\VerifyEmail;
+use Crypt;
+use DB;
+use Illuminate\Http\Request;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -35,7 +40,7 @@ class RegisterController extends Controller
    // {
    //     if (Auth::user() == true && Auth::user()->id_roles == 1 )
    //     {
-        
+
    //         return '/halamanpasien';
    //     }elseif (Auth::user() == true && Auth::user()->id_roles == 2 )
    //     {
@@ -48,8 +53,8 @@ class RegisterController extends Controller
    //      return redirect('/login');
    //     }
    //  } 
-       
-   
+
+
     /**
      * Create a new controller instance.
      *
@@ -57,7 +62,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+      $this->middleware('guest');
     }
 
     /**
@@ -68,14 +73,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'jenis_kelamin' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'tanggal_lahir' => 'required|date',
-            'id_roles' => 'required',
-        ]);
+      return Validator::make($data, [
+        'name' => 'required|string|max:255',
+        'jenis_kelamin' => 'required',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:6|confirmed',
+        'tanggal_lahir' => 'required|date',
+        'id_roles' => 'required',
+      ]);
     }
 
     /**
@@ -86,18 +91,40 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+      $user = User::create([
+        'name' => $data['name'],
+        'jenis_kelamin' => $data['jenis_kelamin'],
+        'email' => $data['email'],
+        'password' => bcrypt($data['password']),
+        'tanggal_lahir' => ($data['tanggal_lahir']),
+        'id_roles' => $data['id_roles'],
 
-        return User::create([
-            'name' => $data['name'],
-            'jenis_kelamin' => $data['jenis_kelamin'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'tanggal_lahir' => ($data['tanggal_lahir']),
-            'id_roles' => $data['id_roles'],
-            
-        ]);
+      ]);
+
+      Mail::to($user->email)->send(new VerifyEmail($user));
         // redirect('/perawat');
     }
 
-}
+    public function verify()
+    {
+      if (empty(request('token'))) {
+        // if token is not provided
+        return redirect()->route('signup.form');
+      }
+    // decrypt token as email
+      $decryptedEmail = Crypt::decrypt(request('token'));
+    // find user by email
+      $user = User::whereEmail($decryptedEmail)->first();
+      if ($user->status == 'activated') {
+        // user is already active, do something
+
+      }
+    // otherwise change user status to "activated"
+      $user->status = 'activated';
+      $user->save();
+    // autologin
+      Auth::loginUsingId($user->id);
+      return redirect('/home');
+    }
+
+  }

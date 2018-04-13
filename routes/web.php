@@ -70,6 +70,8 @@ Route::get('/halamanpesan','PasienController@halpesan');
 //route ke riwayat pemesanan
 Route::get('/riwayatpemesanan','PasienController@riwpesan');
 
+Route::get('/admin_pemesanan_perawat','AdminController@lihat');
+
 //route ke halaman pesan
 // Route::get('/formpesan','PasienController@pesansekarang');
 
@@ -90,13 +92,18 @@ Route::get('welcomeperawat','PerawatController@welcome1');
 
 //route ke halaman welcome pasien
 Route::get('welcomepasien','PasienController@welcome2');
-
 //
 Route::resource('listhomecare','ListController');
 
 Route::resource('formlayanan', 'FormLayananController');
 
 Route::resource('detailhomecare', 'DetailHomecareController');
+
+Route::resource('perawattersedia', 'PerawatTersediaController');
+
+Route::resource('tambahperawat', 'TambahPerawatController');
+
+Route::resource('ubah_perawat', 'TambahPerawatController');
 
 Route::resource('formpesan', 'PemesananController');
 
@@ -124,6 +131,8 @@ Route::resource('admin_mitrahomecare', 'AdminMitraHomecareController');
 
 Route::resource('detail_mitrahomecare', 'AdminDetailMitraController');
 
+Route::resource('admin_pemesanan_perawat', 'AdminLihatPerawatController');
+
 Route::get('ubahstatus/{id}','PesananController@ubahstatus');
 
 Route::get('ubahstatusditerima/{id}','PesananController@ubahstatusditerima');
@@ -133,7 +142,9 @@ Route::get('ubahstatususers/{id}','AdminDaftarPenggunaController@ubahstatususers
 //veifys
 Route::group(['middleware' => ['isVerified']], function () { });
 
-Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
+// Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
 
-Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
+// Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
+
+Route::get('verify', 'RegisterController@verify')->name('signup.verify');
 
