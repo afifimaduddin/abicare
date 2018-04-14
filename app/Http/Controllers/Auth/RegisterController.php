@@ -8,12 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Auth;
-use App\VerifyUser;
-use App\Mail\VerifyEmail;
-use Crypt;
 use DB;
 use Illuminate\Http\Request;
-use Mail;
 
 class RegisterController extends Controller
 {
@@ -91,7 +87,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      $user = User::create([
+      return User::create([
         'name' => $data['name'],
         'jenis_kelamin' => $data['jenis_kelamin'],
         'email' => $data['email'],
@@ -100,31 +96,7 @@ class RegisterController extends Controller
         'id_roles' => $data['id_roles'],
 
       ]);
-
-      Mail::to($user->email)->send(new VerifyEmail($user));
         // redirect('/perawat');
-    }
-
-    public function verify()
-    {
-      if (empty(request('token'))) {
-        // if token is not provided
-        return redirect()->route('signup.form');
-      }
-    // decrypt token as email
-      $decryptedEmail = Crypt::decrypt(request('token'));
-    // find user by email
-      $user = User::whereEmail($decryptedEmail)->first();
-      if ($user->status == 'activated') {
-        // user is already active, do something
-
-      }
-    // otherwise change user status to "activated"
-      $user->status = 'activated';
-      $user->save();
-    // autologin
-      Auth::loginUsingId($user->id);
-      return redirect('/home');
     }
 
   }

@@ -69,13 +69,41 @@
         ?>
       -->
       <section style="display:<?php echo $tampilkaninfo ?>" class="content">
-        <div class="row">
+        <div class="row" >
           <div class="col-md-6 col-md-offset-3">
+            @if($data->status=='aktif')
+            
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >&times;</button>
+                <h4><i class="icon fa fa-check"></i>Selamat! Homecare Anda telah diverifikasi</h4> 
+
+              </div>
+              
+               
+              
+              @else
+
+              @if($data->SIPP == NULL )
+              <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-close"></i>Maaf! Homecare Anda belum diverifikasi <a href="" data-toggle="modal" data-target="#modal-defaul"><small style="color:white">Silahkan verifikasi homecare</small></a></h4>
+                
+              </div>
+              @else
+              <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i>Mohon menunggu verifikasi Homecare Anda</h4> 
+
+              </div>
+              @endif
+               
+              @endif
+
             <!-- Widget: user widget style 1 -->
             <div class="box box-widget widget-user-2">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               @foreach($homecare as $data)
-              <div class="widget-user-header bg-green">
+              <div class="widget-user-header">
                 <div class="widget-user-image">
                   <img class="img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'">
                 </div>
@@ -83,7 +111,7 @@
                 
                 <h3 class="widget-user-username">{{$data->nama_homecare}}</h3>
                 <h5 class="widget-user-desc">{{$data->alamat_homecare}}</h5>
-                <h5 class="widget-user-desc" value="{{$data->id_roles_jenis}}">{{$data->id_roles_jenis}}</h5>
+                <h5 class="widget-user-desc"></h5>
               </div>
               <div class="widget-user-image">
                 <div class="box-footer">
@@ -370,6 +398,12 @@
                       <input type="hidden" name="_method" value="PATCH">
                       {{ csrf_field() }}
                       {{method_field('PATCH')}}
+
+                      <div class="form-group">
+                        <label for="exampleInputFile">SIPP </label>
+                        <input class="form-control" type="file" name="sipp">
+                      </div>
+
                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">  
                         <div class="form-group">
                           <label for="exampleInputPassword1">Nama Homecare</label>
@@ -488,7 +522,8 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-      
+
+       
       
     </section>
     @append

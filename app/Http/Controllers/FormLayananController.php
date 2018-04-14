@@ -51,32 +51,32 @@ class FormLayananController extends Controller
      */
     public function store(Request $request)
     {
-       $validasi = $request->validate([
+     $validasi = $request->validate([
         'nama_homecare' => ['required'],
         'jenis_layanan' => ['required'],
         'foto' => ['required'],
         'alamat_homecare' => ['required']
-       ]);
-        
-        $layanan = new FormLayanan;
-        $layanan->nama_homecare = $request->nama_homecare;
-        $layanan->id_roles_jenis = $request->jenis_layanan;
-        $layanan->foto_homecare = $request->foto;
-        $layanan->id_users = Auth::user()->id;
-        $layanan->alamat_homecare = $request->alamat_homecare;
-        if($request->hasFile('foto') && $request->file('foto')->isValid()) {
-           $destinationPath = 'public/asset/dist/img';
-           $extension = $request->foto->extension();
-           $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-           $request->foto->storeAs($destinationPath, $fileName);
-           $layanan->foto_homecare = $fileName;
-        }
-        $layanan->save();
+    ]);
+
+     $layanan = new FormLayanan;
+     $layanan->nama_homecare = $request->nama_homecare;
+     $layanan->id_roles_jenis = $request->jenis_layanan;
+     $layanan->foto_homecare = $request->foto;
+     $layanan->id_users = Auth::user()->id;
+     $layanan->alamat_homecare = $request->alamat_homecare;
+     if($request->hasFile('foto') && $request->file('foto')->isValid()) {
+         $destinationPath = 'public/asset/dist/img';
+         $extension = $request->foto->extension();
+         $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
+         $request->foto->storeAs($destinationPath, $fileName);
+         $layanan->foto_homecare = $fileName;
+     }
+     $layanan->save();
 
 
-        return redirect('detailhomecare')->with(session()->flash('identitas', ''));
+     return redirect('detailhomecare')->with(session()->flash('identitas', ''));
 
-    }
+ }
 
     /**
      * Display the specified resource.
@@ -121,16 +121,24 @@ class FormLayananController extends Controller
         $layanan->foto_homecare = $request->foto;
         $layanan->alamat_homecare = $request->alamat_homecare;
         if($request->hasFile('foto') && $request->file('foto')->isValid()) {
-           $destinationPath = 'public/asset/dist/img';
-           $extension = $request->foto->extension();
-           $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-           $request->foto->storeAs($destinationPath, $fileName);
-           $layanan->foto_homecare = $fileName;
-        }
-        $layanan->save();
+         $destinationPath = 'public/asset/dist/img';
+         $extension = $request->foto->extension();
+         $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
+         $request->foto->storeAs($destinationPath, $fileName);
+         $layanan->foto_homecare = $fileName;
+     }
+     $layanan->SIPP = $request->sipp;
+     if($request->hasFile('sipp') && $request->file('sipp')->isValid()) {
+         $destinationPath = 'public/asset/dist/verifikasi';
+         $extension = $request->sipp->extension();
+         $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
+         $request->sipp->storeAs($destinationPath, $fileName);
+         $layanan->SIPP = $fileName;
+     }
+     $layanan->save();
 
-        return redirect('formlayanan')->with(session()->flash('jenis', ''));
-    }
+     return redirect('formlayanan')->with(session()->flash('jenis', ''));
+ }
 
     /**
      * Remove the specified resource from storage.

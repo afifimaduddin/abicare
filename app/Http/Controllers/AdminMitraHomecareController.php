@@ -40,6 +40,14 @@ class AdminMitraHomecareController extends Controller
         //
     }
 
+    public function ubahstatushomecare($id)
+    {
+        $homecare = FormLayanan::find($id);
+        $homecare->status = 'aktif';
+        $homecare->save();
+
+        return redirect('admin_mitrahomecare');
+    }
     /**
      * Display the specified resource.
      *

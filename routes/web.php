@@ -93,6 +93,7 @@ Route::get('welcomeperawat','PerawatController@welcome1');
 //route ke halaman welcome pasien
 Route::get('welcomepasien','PasienController@welcome2');
 //
+
 Route::resource('listhomecare','ListController');
 
 Route::resource('formlayanan', 'FormLayananController');
@@ -133,18 +134,17 @@ Route::resource('detail_mitrahomecare', 'AdminDetailMitraController');
 
 Route::resource('admin_pemesanan_perawat', 'AdminLihatPerawatController');
 
+
+
 Route::get('ubahstatus/{id}','PesananController@ubahstatus');
 
 Route::get('ubahstatusditerima/{id}','PesananController@ubahstatusditerima');
 
 Route::get('ubahstatususers/{id}','AdminDaftarPenggunaController@ubahstatususers');
 
+Route::get('ubahstatushomecare/{id}','AdminMitraHomecareController@ubahstatushomecare');
+
 //veifys
 Route::group(['middleware' => ['isVerified']], function () { });
 
-// Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
-
-// Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
-
-Route::get('verify', 'RegisterController@verify')->name('signup.verify');
-
+Route::get('verifikasi', 'FormLayananController@ubahstatus');

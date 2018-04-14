@@ -27,6 +27,8 @@
               <th>Foto</th>
               <th>Nama Homecare</th>
               <th>Alamat Homecare</th>
+              <th>Status Homecare</th>
+              <th>SIPP</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -36,6 +38,20 @@
               <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
               <td>{{$data->nama_homecare}}</td>
               <td>{{$data->alamat_homecare}}</td>
+              <td> 
+                @if($data->status=='nonaktif')
+                <a href="{{url('/ubahstatushomecare')}}/{{$data->id_homecare}}" class="label label-danger">Nonaktif</a>
+                @else
+                <span class="label label-success">Aktif</span>
+                @endif
+              </td>
+              <td>
+                @if($data->SIPP != NULL)
+                <a href="storage/asset/dist/verifikasi/{{$data->SIPP}}" target="_blank"><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/verifikasi/')}}/{{$data->SIPP}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></a>
+                @else
+                Belum ada berkas
+                @endif
+              </td>
               <td>
                 <a href="{{url ('/detail_mitrahomecare/')}}/{{$data->id_homecare}}" class="btn btn-primary" >Lihat detail</a>
               </td>
