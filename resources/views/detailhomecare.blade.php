@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Nomor Telepon</label>
-              <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="Nomor Telepon">
+              <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="+62">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Tarif</label>

@@ -8,7 +8,7 @@
       <div class="box box-widget widget-user-2">
         <!-- Add the bg color to the header using any of the bg-* classes -->
         @foreach($homecare as $data)
-        <div class="widget-user-header bg-green">
+        <div class="widget-user-header bg-default">
           <div class="widget-user-image">
             <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
           </div>

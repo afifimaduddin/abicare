@@ -118,13 +118,11 @@
             <h4 class="modal-title">Tambah Jenis Layanan</h4>
 
             <form role="form" action="{{ route('admin_jenislayanan.store') }}" method="POST">
-              <input type="hidden" name="_method" value="PATCH">
               {{ csrf_field() }}
-              {{method_field('PATCH')}}
 
               <div class="form-group">
                 <label>Jenis Layanan</label>
-                <input type="string" class="form-control" name="jenis_layanan" placeholder="Jenis Layanan">
+                <input type="text" class="form-control" name="nama_perawatan" placeholder="Jenis Layanan">
               </div>
 
               <div class="modal-footer">

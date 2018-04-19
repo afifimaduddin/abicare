@@ -15,7 +15,8 @@ class FormLayanan extends Model
     protected $fillable = [
     		'nama_homecare',
     		'jenis_layanan',
-    		'foto',
+    		'foto_homecare',
     		'alamat_homecare',
+            'status_homecare',
     ];		
 }

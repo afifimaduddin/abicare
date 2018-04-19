@@ -78,7 +78,7 @@
          <strong><i class="fa  fa-calendar-times-o margin-r-5"></i>No Telfon</strong>
 
          <p>
-          {{$data->no_telfon_pasien}}
+          +62{{$data->no_telfon}}
         </p>
 
         <div class="box-footer">
@@ -134,9 +134,14 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">No Telfon</label>
-            <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="Nomor Telepon" value="{{$data->no_telfon}}">
-          </div>
+            <div class="input-group">
+            
+                <span class="input-group-addon">+62</span>
+                <input type="number" name="no_telfon" class="form-control" placeholder="821xxx" value="{{$data->no_telfon}}">
+              </div>
         </div>
+          </div>
+          
         @endforeach
         <!-- /.box-body -->
 

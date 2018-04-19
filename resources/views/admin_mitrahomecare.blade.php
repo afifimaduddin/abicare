@@ -39,7 +39,7 @@
               <td>{{$data->nama_homecare}}</td>
               <td>{{$data->alamat_homecare}}</td>
               <td> 
-                @if($data->status=='nonaktif')
+                @if($data->status_homecare=='nonaktif')
                 <a href="{{url('/ubahstatushomecare')}}/{{$data->id_homecare}}" class="label label-danger">Nonaktif</a>
                 @else
                 <span class="label label-success">Aktif</span>

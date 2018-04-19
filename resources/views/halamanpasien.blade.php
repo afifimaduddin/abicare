@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Abicare | Dashboard</title>
+  <title>Pasien Abicare</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -487,16 +487,16 @@
  </div>
  <!-- ./wrapper -->
  <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5ac6f004d7591465c7093d2b/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+ <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5ac6f004d7591465c7093d2b/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
 </script>
 
 <script>
@@ -518,16 +518,16 @@ s0.parentNode.insertBefore(s1,s0);
     //ini untuk kalau side tree nya di click bakal nambahin class active
     var url = window.location;
     $('ul.sidebar-menu a').filter(function () {
-        return this.href == url;
+      return this.href == url;
     }).parent().addClass('active');
 
     // untuk bagian tree view nya
     $('ul.treeview-menu a').filter(function() {
-        return this.href == url;
+      return this.href == url;
     }).closest('.treeview').addClass('active');
 
 
 
-</script>
-</body>
+  </script>
+</body
 </html>

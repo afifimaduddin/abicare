@@ -12,13 +12,7 @@
   </ol>
 </section>
 <section class="content">
-  <div class="row">  
-    <td>
-      <a href="{{url('halamanpesan')}}">
-      <div class="col-md-1"><button type="button" class="btn btn-block btn-success glyphicon glyphicon-chevron-left"></button></div> 
-      </a>
-    </td>
-  </div>  
+ <!--  -->
   <p></p>
   <div class="row">
     <div class="col-xs-12">

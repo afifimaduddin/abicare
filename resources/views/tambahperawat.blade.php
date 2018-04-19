@@ -3,7 +3,7 @@
 @section('isi3')
 <section class="content-header">
   <h1>
-   Tambah Perawat kkk
+   Tambah Perawat
     <small></small>
   </h1>
   <ol class="breadcrumb">

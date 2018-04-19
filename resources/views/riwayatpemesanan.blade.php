@@ -58,7 +58,7 @@
                 <span class="label label-success">Selesai</span>
                 @endif
               </td>
-              <td><a target="_blank" href="https://api.whatsapp.com/send?phone={{$data->no_telfon}}&text=Selamat%20Datang%20Di%20Layanan%20Abicare%20 :)" class="btn btn-success" ><i class="fa fa-phone"></i></a></td>
+              <td><a target="_blank" href="https://web.whatsapp.com/send?phone=+62{{$data->no_telfon}}&text=Selamat%20Datang%20Di%20Layanan%20Abicare%20 :)" class="btn btn-success" ><i class="fa fa-phone"></i></a></td>
             </tr>
               @endforeach  
           </tbody>

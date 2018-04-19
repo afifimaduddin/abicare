@@ -10,12 +10,13 @@ class PerawatController extends Controller
 {
     public function halperawat()
     {
-        $jumlah = FormPesan::query()->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')
+        $jumlah = FormPesan::query()
+        ->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')
          ->join('detail_homecare','detail_homecare.id_homecare','=','homecare.id_homecare')
          ->join('users','users.id','=','homecare.id_users')
          ->join('users as u','u.id','=','pemesanan.id_users')
          ->where('u.id_roles',1)
-         ->where('users.id',Auth::user()->id)->get()->count();
+         ->where('users.id',Auth::user()->id)->get();
 
         return view('halamanperawat')->with('jumlah',$jumlah);
     }

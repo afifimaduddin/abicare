@@ -19,6 +19,11 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
+       <div class="callout callout-success">
+    <h4>Verifikasi Akun</h4>
+
+    <p>Pastikan setelah verifikasi akun mengirimkan pemberitahuan melalui email user terkait </p>
+  </div>
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -44,7 +49,7 @@
               @endif
             </td>
             <td>{{$data->email}}</td>
-            <td>{{$data->no_telfon}}</td>
+            <td>+62{{$data->no_telfon}}</td>
             <td>
               @if($data->id_roles=='1')
               <?php echo 'Pasien' ?> 
@@ -57,6 +62,7 @@
                 <a href="{{url('/ubahstatususers')}}/{{$data->id}}" class="label label-danger">Nonaktif</a>
                 @else
                 <span class="label label-success">Aktif</span>
+                <a class="label label-primary" href="https://gmail.com" target="_blank">kirim Pemberitahuan</a>
                 @endif
             </td>
           </tr>

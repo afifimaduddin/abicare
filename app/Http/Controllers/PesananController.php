@@ -17,11 +17,11 @@ class PesananController extends Controller
     {
         //
         $pesanan = FormPesan::query()->join('homecare','homecare.id_homecare','=','pemesanan.id_homecare')
-         ->join('detail_homecare','detail_homecare.id_homecare','=','homecare.id_homecare')
-         ->join('users','users.id','=','homecare.id_users')
-         ->join('users as u','u.id','=','pemesanan.id_users')
-         ->where('u.id_roles',1)
-         ->where('users.id',Auth::user()->id)->get();
+        ->join('detail_homecare','detail_homecare.id_homecare','=','homecare.id_homecare')
+        ->join('users','users.id','=','homecare.id_users')
+        ->join('users as u','u.id','=','pemesanan.id_users')
+        ->where('u.id_roles',1)
+        ->where('users.id',Auth::user()->id)->get();
 
         return view('pesanan')->with('pesanan',$pesanan);
     }
@@ -52,7 +52,7 @@ class PesananController extends Controller
         return redirect('pesanan');
     }
 
-     public function ubahstatusditerima($id_pemesanan)
+    public function ubahstatusditerima($id_pemesanan)
     {
         $pemesanan = FormPesan::find($id_pemesanan);
         $pemesanan->status = 'selesai';

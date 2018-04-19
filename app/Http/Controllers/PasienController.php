@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FormLayanan;
+use App\RolesJenis;
 
 class PasienController extends Controller
 {
     public function halpasien()
     {
-    	return view('halamanpasien');
+
+        return view('halamanpasien');
     }
 
     public function profilpas()
@@ -19,7 +21,9 @@ class PasienController extends Controller
 
     public function halpesan()
     {
-    	return view('halamanpesan');
+       $roles_jenis = RolesJenis::all();
+
+        return view('halamanpesan')->with('roles_jenis', $roles_jenis);
     }
 
     public function riwpesan()

@@ -144,6 +144,8 @@ Route::get('ubahstatususers/{id}','AdminDaftarPenggunaController@ubahstatususers
 
 Route::get('ubahstatushomecare/{id}','AdminMitraHomecareController@ubahstatushomecare');
 
+Route::get('formlayanan/{id}','FormLayananController@verifikasi');
+
 //veifys
 Route::group(['middleware' => ['isVerified']], function () { });
 

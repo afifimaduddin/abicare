@@ -54,7 +54,6 @@ class FormLayananController extends Controller
      $validasi = $request->validate([
         'nama_homecare' => ['required'],
         'jenis_layanan' => ['required'],
-        'foto' => ['required'],
         'alamat_homecare' => ['required']
     ]);
 
@@ -127,14 +126,17 @@ class FormLayananController extends Controller
          $request->foto->storeAs($destinationPath, $fileName);
          $layanan->foto_homecare = $fileName;
      }
-     $layanan->SIPP = $request->sipp;
-     if($request->hasFile('sipp') && $request->file('sipp')->isValid()) {
-         $destinationPath = 'public/asset/dist/verifikasi';
-         $extension = $request->sipp->extension();
-         $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-         $request->sipp->storeAs($destinationPath, $fileName);
-         $layanan->SIPP = $fileName;
+        if( $request->sipp){
+            $layanan->SIPP = $request->sipp;
+        if($request->hasFile('sipp') && $request->file('sipp')->isValid()) {
+            $destinationPath = 'public/asset/dist/verifikasi';
+            $extension = $request->sipp->extension();
+            $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
+            $request->sipp->storeAs($destinationPath, $fileName);
+            $layanan->SIPP = $fileName;
      }
+        }
+        
      $layanan->save();
 
      return redirect('formlayanan')->with(session()->flash('jenis', ''));

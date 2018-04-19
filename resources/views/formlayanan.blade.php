@@ -71,34 +71,27 @@
       <section style="display:<?php echo $tampilkaninfo ?>" class="content">
         <div class="row" >
           <div class="col-md-6 col-md-offset-3">
-            @if($data->status=='aktif')
-            
+            @foreach($homecare as $data)
+            @if($data->SIPP == NULL )
+            <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-close"></i>Maaf! Homecare Anda belum diverifikasi <a href="" data-toggle="modal" data-target="#modal-verif"><small style="color:white">Silahkan verifikasi homecare</small></a></h4>
+            </div>
+            @else
+            @if($data->status_homecare=='aktif')
             <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >&times;</button>
-                <h4><i class="icon fa fa-check"></i>Selamat! Homecare Anda telah diverifikasi</h4> 
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >&times;</button>
+              <h4><i class="icon fa fa-check"></i>Selamat! Homecare Anda telah diverifikasi</h4> 
+            </div>
+            @else
+            <div class="alert alert-warning alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-check"></i>Mohon menunggu verifikasi Homecare Anda</h4> 
+            </div>
+            @endif
 
-              </div>
-              
-               
-              
-              @else
-
-              @if($data->SIPP == NULL )
-              <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-close"></i>Maaf! Homecare Anda belum diverifikasi <a href="" data-toggle="modal" data-target="#modal-defaul"><small style="color:white">Silahkan verifikasi homecare</small></a></h4>
-                
-              </div>
-              @else
-              <div class="alert alert-warning alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i>Mohon menunggu verifikasi Homecare Anda</h4> 
-
-              </div>
-              @endif
-               
-              @endif
-
+            @endif
+            @endforeach
             <!-- Widget: user widget style 1 -->
             <div class="box box-widget widget-user-2">
               <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -115,8 +108,8 @@
               </div>
               <div class="widget-user-image">
                 <div class="box-footer">
-                  <div class="col-md-2 col-md-offset-10">
-                    <a href="#" class="btn btn-primary btn-block " data-toggle="modal" data-target="#modal-defaul" ><b>Ubah</b></a>
+                  <div class="col-md-2 col-md-offset-10">  
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-defaul"><b>Ubah</b></a>
                   </div>
                 </div>    
               </div>
@@ -147,7 +140,7 @@
 
                   <strong><i class="fa fa-phone margin-r-5"></i>No Telepon</strong>
 
-                  <p class="text-muted">{{$data->no_telfon}}</p>
+                  <p class="text-muted">+62{{$data->no_telfon}}</p>
 
                   <hr>
 
@@ -179,13 +172,13 @@
               <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                  <tr>
-                    <th>Hari Praktek</th>
-                    <th>Jam Buka</th>
-                    <th>Jam Tutup</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
+                    <tr>
+                      <th>Hari Praktek</th>
+                      <th>Jam Buka</th>
+                      <th>Jam Tutup</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
                   @foreach($jadwalhomecare as $data)
                   <tr>
                     <td>{{$data->hari_praktek}}</td>
@@ -398,12 +391,6 @@
                       <input type="hidden" name="_method" value="PATCH">
                       {{ csrf_field() }}
                       {{method_field('PATCH')}}
-
-                      <div class="form-group">
-                        <label for="exampleInputFile">SIPP </label>
-                        <input class="form-control" type="file" name="sipp">
-                      </div>
-
                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">  
                         <div class="form-group">
                           <label for="exampleInputPassword1">Nama Homecare</label>
@@ -523,8 +510,85 @@
       </div>
       <!-- /.modal -->
 
-       
-      
-    </section>
-    @append
+      <div class="modal fade" id="modal-verif">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Upload SIPP untuk Verifikasi </h4>
+              </div>
+              <div class="modal-body">
+                <div class="box-body">
+                  @foreach($homecare as $datahomecare)
+                  <form role="form" action="{{route('formlayanan.update',$datahomecare->id_homecare)}}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="PATCH">
+                    {{ csrf_field() }}
+                    {{method_field('PATCH')}}
+
+                    <div class="form-group">
+                      <label for="exampleInputFile">SIPP </label>
+                      <input class="form-control" type="file" name="sipp">
+                    </div>
+
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">  
+                      <div class="form-group">
+
+                        <div>
+                          <input type="hidden" name="nama_homecare" class="form-control" id="exampleInputPassword1" placeholder="Nama Homecare" value="{{$datahomecare->nama_homecare}}">
+
+                        </div>
+                        @if ($errors->has('nama_homecare'))
+                        <span class="help-block">
+                          <strong>{{ $errors->first('nama_homecare') }}</strong>
+                        </span>
+                        @endif
+                      </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">    
+                      <div class="form-group">
+
+                       <input type="hidden" name="jenis_layanan" value="{{$datahomecare->id_roles_jenis}}">
+                       @if ($errors->has('nama_homecare'))
+                       <span class="help-block">
+                        <strong>{{ $errors->first('nama_homecare') }}</strong>
+                      </span>
+                      @endif
+                    </div>
+                  </div>    
+                  <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <div class="form-group">
+
+                      <div>
+                       <input class="form-control" type="hidden" name="alamat_homecare" rows="3" placeholder="Alamat Homecare" value="{{$datahomecare->alamat_homecare}}">
+                     </div>
+                     @if ($errors->has('alamat_homecare'))
+                     <span class="help-block">
+                      <strong>{{ $errors->first('alamat_homecare') }}</strong>
+                    </span>
+                    @endif
+                  </div>
+                </div>
+                @endforeach
+                <!-- /.box-body --> 
+              </a>  
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+              <input type="submit" class="btn btn-primary" value="Simpan" >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+</section>
+@append
     <!-- /.content -->

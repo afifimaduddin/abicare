@@ -17,7 +17,9 @@ class PerawatTersediaController extends Controller
     public function index()
     {
         //
-        $tambahperawat = TambahPerawat::all();
+        $tambahperawat = TambahPerawat::query()
+        ->join('homecare','detail_perawat.id_homecare','=','homecare.id_homecare')
+        ->where('homecare.id_users',Auth::user()->id)->get();
         return view('perawattersedia')->with('tambahperawat',$tambahperawat);
     }
 

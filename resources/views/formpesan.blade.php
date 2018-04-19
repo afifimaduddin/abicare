@@ -21,7 +21,12 @@
 
     //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+      autoclose: true,
+      minDate: 0,
+       onSelect: function(dateText) {
+        $sD = new Date(dateText);
+        $("#datepicker").datepicker('option', 'minDate', min);
+    }
     })
 
 
@@ -49,7 +54,6 @@
   @endif  
 
   <div class="row">
-    <?php echo date('G:i:s') ?>
     <!-- left column -->
     <div class="col-md-6">
       <div class="box box-success">
@@ -72,7 +76,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" name="tanggal_pemesanan" class="form-control pull-right" id="datepicker">
+                <input min="<?php echo date('Y-m-d') ?>" type="text" name="tanggal_pemesanan" class="form-control pull-right" id="datepicker">
               </div>
               <!-- /.input group -->
             </div>

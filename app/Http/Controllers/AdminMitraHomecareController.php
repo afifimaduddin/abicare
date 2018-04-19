@@ -43,7 +43,7 @@ class AdminMitraHomecareController extends Controller
     public function ubahstatushomecare($id)
     {
         $homecare = FormLayanan::find($id);
-        $homecare->status = 'aktif';
+        $homecare->status_homecare = 'aktif';
         $homecare->save();
 
         return redirect('admin_mitrahomecare');

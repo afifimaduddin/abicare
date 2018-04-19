@@ -39,7 +39,7 @@ class AdminJenisLayananController extends Controller
     {
         //
        $jenis = new RolesJenis;
-       $jenis->nama_perawatan = $request->jenis_layanan;
+       $jenis->nama_perawatan = $request->nama_perawatan;
        $jenis->save();
 
 

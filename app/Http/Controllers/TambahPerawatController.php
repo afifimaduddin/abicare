@@ -48,11 +48,11 @@ class TambahPerawatController extends Controller
         $tambahperawat->jurusan = $request->jurusan;
         $tambahperawat->NIRA = $request->nomor;
         $tambahperawat->foto_perawat = $request->foto_perawat;
-        if($request->hasFile('foto') && $request->file('foto')->isValid()) {
+        if($request->hasFile('foto_perawat') && $request->file('foto_perawat')->isValid()) {
            $destinationPath = 'public/asset/dist/img';
-           $extension = $request->foto->extension();
+           $extension = $request->foto_perawat->extension();
            $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-           $request->foto->storeAs($destinationPath, $fileName);
+           $request->foto_perawat->storeAs($destinationPath, $fileName);
            $tambahperawat->foto_perawat = $fileName;
         }
         $tambahperawat->save();
@@ -105,11 +105,11 @@ class TambahPerawatController extends Controller
         $tambahperawat->jurusan = $request->jurusan;
         $tambahperawat->NIRA = $request->nomor;
         $tambahperawat->foto_perawat = $request->foto_perawat;
-        if($request->hasFile('foto') && $request->file('foto')->isValid()) {
+        if($request->hasFile('foto_perawat') && $request->file('foto_perawat')->isValid()) {
            $destinationPath = 'public/asset/dist/img';
-           $extension = $request->foto->extension();
+           $extension = $request->foto_perawat->extension();
            $fileName = date('YmdHsi').'_'.Auth::user()->id.'.'.$extension;
-           $request->foto->storeAs($destinationPath, $fileName);
+           $request->foto_perawat->storeAs($destinationPath, $fileName);
            $tambahperawat->foto_perawat = $fileName;
         }
         $tambahperawat->save();
