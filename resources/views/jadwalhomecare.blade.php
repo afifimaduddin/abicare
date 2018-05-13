@@ -7,10 +7,10 @@
   $().ready(function (e) {
     swal({
       title: "Success!",
-      text: "Jadwal berhasil ditambahkan :)",
+      text: "Jadwal berhasil ditambahkan",
       icon: "success",
       button: false,
-      timer: 2000
+      timer: 3000
     });
   });
 </script>
@@ -21,10 +21,10 @@
   $().ready(function (e) {
     swal({
       title: "Success!",
-      text: "Detail Homecare berhasil ditambahkan :)",
+      text: "Detail Homecare berhasil ditambahkan",
       icon: "success",
       button: false,
-      timer: 2000
+      timer: 3000
     });
   });
 </script>
@@ -87,7 +87,7 @@
                 </div>
               </div>
             </div>
-
+            <a style="color : red">Contoh : 09:00:AM</a>
             <div class="form-group">
               <label for="inputnip">Jam tutup</label>
               <div class="col-md-12" style="padding-top: 5px; padding-bottom: 5px;">
@@ -96,7 +96,7 @@
                 </div>
               </div>
             </div>
-
+            <a style="color : red">Contoh : 09:00:AM</a>
           </div>
           <!-- /.box-body -->
 
@@ -111,7 +111,7 @@
     <!-- /.box -->
   </div>
   <div class="col-md-6">
-    <div class="box box-primary">
+    <div class="box box-success">
       <div class="box-header">
         <h3 class="box-title">Jadwal Homecare</h3>
       </div>

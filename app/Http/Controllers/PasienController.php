@@ -43,6 +43,8 @@ class PasienController extends Controller
 
     public function welcome2()
     {
-        return view('welcomepasien');
+        $roles_jenis = RolesJenis::all();
+
+        return view('welcomepasien')->with('roles_jenis', $roles_jenis);
     }
 }

@@ -60,7 +60,7 @@
               <input type="string" name="jurusan" class="form-control" id="exampleInputPassword1" placeholder="Jurusan" value="{{$data->jurusan}}">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">NIRA (Nomor Induk Registrasi Anggota)</label>
+              <label for="exampleInputPassword1">SIPP atau STR</label>
               <input type="string" name="nomor" class="form-control" id="exampleInputPassword1" placeholder="NIRA" value="{{$data->NIRA}}">
             </div>
             <div class="form-group">

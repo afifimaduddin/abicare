@@ -7,10 +7,10 @@
   $().ready(function (e) {
     swal({
       title: "Success!",
-      text: "Identitas berhasil ditambahkan :)",
+      text: "Identitas berhasil ditambahkan",
       icon: "success",
       button: false,
-      timer: 2000
+      timer: 3000
     });
   });
 </script>
@@ -54,9 +54,16 @@
               <label for="exampleInputEmail1">E-mail</label>
               <input type="email" class="form-control" name="email_homecare" id="exampleInputEmail1" placeholder="Email Homecare">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="exampleInputPassword1">Nomor Telepon</label>
               <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="+62">
+            </div> -->
+            <div class="form-group">
+            <label for="exampleInputPassword1">No Telfon</label>
+            <div class="input-group">
+                <span class="input-group-addon">+62</span>
+                <input type="number" name="no_telfon" class="form-control" placeholder="821xxx" value="">
+              </div>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Tarif</label>

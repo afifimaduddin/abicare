@@ -7,7 +7,7 @@
   $().ready(function (e) {
     swal({
       title: "Success!",
-      text: "Profil berhasil diubah :)",
+      text: "Profil berhasil diubah",
       icon: "success",
       button: false,
       timer: 2000
@@ -37,7 +37,7 @@
       <div class="box box-success">
         <div class="box-body box-profile">
           @foreach($profil as $data)
-          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
+          <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar5.png')}}'" alt="User profile picture">
 
           <h3 class="profile-username text-center">{{$data->name}}</h3>
 

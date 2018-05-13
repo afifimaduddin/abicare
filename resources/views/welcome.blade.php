@@ -88,8 +88,8 @@
                 <li><a class="menu" href="#templatemo_portfolio">Portfolio</a></li>
                 <li><a class="menu" href="#templatemo_blog">Blog</a></li>
                 <li><a class="menu" href="#templatemo_contact">Contact</a></li> -->
-                <li><a class="menu" href="{{route('login')}}">Login</a></li>
-                <li><a class="menu" href="{{route('register')}}">Daftar Sekarang</a></li>
+                <li><a style="font-size:120%;" class="menu" href="{{route('login')}}"><b>Login</b></a></li>
+                <li><a style="font-size:120%;" class="menu" href="{{route('register')}}"><b>Daftar Sekarang</b></a></li>
               </ul>
             </nav>
           </div>
@@ -119,7 +119,7 @@
          <span class="texts-a" ><i class="fa fa-user"></i></span>
        </div>
        </a>                         
-       1. Pasien</div>
+       <b style="font-size:140%;">Pasien</b></div>
     </div>  
   </div>
   <div class="col-md-3 col-md-offset-1 templatemo_col12">
@@ -130,7 +130,7 @@
          <span class="texts-a" ><i class="fa fa-user-md"></i></span>
        </div>
        </a>
-      2. Perawat</div>
+       <b style="font-size:140%;">Perawat</b></div>
     </div>  
   </div>
 
@@ -140,9 +140,10 @@
 <div class=""></div>
 <div class="templatemo_reasonbg">
   <h2>Keunggulan Abicare</h2>
-  <p>- Homecare yang terdaftar dalam aplikasi profesional dan terpercaya sesuai undang-undang.</p>
-  <p>- Perawat atau tenaga kesehatan profesional dibidangnya.</p>
-  <p>- Mengetahui biaya perawatan yang akan dibayarkan sesuai.</p>
+  <br>
+  <p style="font-size:140%;">- Homecare yang terdaftar dalam aplikasi profesional dan terpercaya sesuai undang-undang.</p>
+  <p style="font-size:140%;">- Perawat atau tenaga kesehatan profesional dibidangnya.</p>
+  <p style="font-size:140%;">- Mengetahui biaya perawatan yang akan dibayarkan sesuai.</p>
 </div>
 <div class="clear"></div>
 <!--Our Portfolio Start-->
@@ -270,7 +271,7 @@
           <div class="col-xs-6 col-sm-6 col-md-18 templatemo_col12">
             <h2>Kontak</h2>
             <span class="left col-xs-1 fa fa-map-marker"></span>
-            <span class="right col-xs-11">Kampus Universitas Diponegoro, Tembalang, Semarang, Jawa Tengah, Indonesia </span>
+            <span class="right col-xs-11">Jalan Bulusan X, Tembalang, Semarang, Jawa Tengah, 50277, Indonesia </span>
             <div class="clear height10"></div>
             <span class="left col-xs-1 fa fa-phone"></span>
             <span class="right col-xs-11">0821-3865-1233</span>

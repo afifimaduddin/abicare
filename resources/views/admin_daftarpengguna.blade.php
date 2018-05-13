@@ -33,7 +33,7 @@
             <th>E-Mail</th>
             <th>No telefon</th>
             <th>Roles</th>
-            <th>Aksi</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -59,10 +59,10 @@
             </td>
             <td>
               @if($data->status_users=='nonaktif')
-                <a href="{{url('/ubahstatususers')}}/{{$data->id}}" class="label label-danger">Nonaktif</a>
+                <a href="{{url('/ubahstatususers')}}/{{$data->id}}" class="btn btn-sm btn-info" style="background: #FF0000; border-color: #fff">Nonaktif</a>
                 @else
-                <span class="label label-success">Aktif</span>
-                <a class="label label-primary" href="https://gmail.com" target="_blank">kirim Pemberitahuan</a>
+                <span class="btn btn-sm btn-info" style="background: #32CD32; border-color: #fff">Aktif</span>
+                <a class="btn btn-sm btn-info" style="background: #1E90FF; border-color: #fff" href="https://gmail.com" target="_blank">kirim Pemberitahuan</a>
                 @endif
             </td>
           </tr>

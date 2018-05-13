@@ -124,12 +124,14 @@
 
                 <ul class="dropdown-menu">
                   <li>
+                    <center>
                     <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    Logout
+                    <i class="fa fa-sign-out"></i>
+                    Keluar
                   </a>
-
+                    </center>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                   </form>
@@ -210,6 +212,19 @@
           <li class="active">Dashboard</li>
         </ol>
       </section>
+      <section class="content">
+        <div class="col-md-6 col-md-offset-2">
+          <div class="box box-default">
+            <div class="box-header">
+              <center><img src="{{url('asset/dist/img/abicarelogo.png')}}" class="user-image" alt="User Image" width="200px"></center>
+            </div>
+            <div class="box-body" align="center">
+              Selamat Datang Admin
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+       </section> 
 
       <section class="content">
         <!-- Info boxes -->
@@ -218,7 +233,7 @@
           <!-- fix for small devices only -->
           <div class="clearfix visible-sm-block"></div>
 
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="info-box">
               <span class="info-box-icon bg-red"><i class="ion ion-ios-cart-outline"></i></span>
 
@@ -231,7 +246,7 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="info-box">
               <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 
@@ -244,7 +259,7 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="info-box">
               <span class="info-box-icon bg-green"><i class="ion ion-ios-home-outline"></i></span>
 

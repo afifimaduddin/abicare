@@ -34,7 +34,7 @@
             @foreach($homecare as $data)
             <tr>
               <td>{{$data->id_homecare}}</td>
-              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
+              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/iconhomecare.png')}}'" alt="User profile picture"></td>
               <td>{{$data->nama_homecare}}</td>
               <td>{{$data->alamat_homecare}}</td>
               <td>

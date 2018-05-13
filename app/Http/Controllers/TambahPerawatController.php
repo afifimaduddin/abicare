@@ -38,6 +38,14 @@ class TambahPerawatController extends Controller
      */
     public function store(Request $request)
     {
+        $validasi = $request->validate([
+        'nama_perawat' => ['required'],
+        'jenis_kelamin' => ['required'],
+        'tanggal_lahir' => ['required'],
+        'jenjang' => ['required'],
+        'jurusan' => ['required'],
+        'nomor' => ['required']
+    ]);
         //
         $tambahperawat = new TambahPerawat;
         $tambahperawat->nama_perawat = $request->nama_perawat;
@@ -58,7 +66,7 @@ class TambahPerawatController extends Controller
         $tambahperawat->save();
 
 
-        return redirect('perawattersedia');
+        return redirect('perawattersedia')->with(session()->flash('tambahperawat', ''));
 
     }
 

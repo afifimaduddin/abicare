@@ -4,7 +4,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
   <div class="login-logo">
-     <a href="{{ url('/') }}"><img src="{{url('asset/dist/img/abicarelogo.png')}}"  class="img-responsive"></a>
+     <center><a href="{{ url('/') }}"><img style="max-width:80%;" src="{{url('asset/dist/img/abicarelogo.png')}}"  class="img-responsive"></a></center>
  </div>
  <div class="login-box-body" style="border-radius: 25px">
     <p class="login-box-msg">Lengkapi form register untuk mendaftar</p>
@@ -83,7 +83,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password terdiri dari 6 karakter">
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="Kata sandi">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -96,7 +96,7 @@
                         <div class="form-group">
                             
                             <div class="col-md-12">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Konfirmasi password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Konfirmasi kata sandi">
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                             <div class="col-md-12">
                                 <select name="id_roles" class="form-control">
                                      <option value="" disabled selected=""> <i>---Daftar Sebagai---</i></option>
-                                    @foreach (\App\roles::all() as $users)
+                                    @foreach (\App\roles::all()->where('id_roles', '!=',3) as $users)
                                             <option value="{{ $users->id_roles }}">{{ $users->nama_roles }}</option>
                                     @endforeach
                                 </select>

@@ -30,14 +30,14 @@
               <td>{{$data->keluhan}}</td>
               <td>
                 @if($data->status=='proses')
-                <a href="{{url('/ubahstatus')}}/{{$data->id_pemesanan}}"><span class="label label-danger">Proses</span></a>
+                <a href="{{url('/ubahstatus')}}/{{$data->id_pemesanan}}"><span class="btn btn-sm btn-info" style="background: #FF0000; border-color: #fff">Proses</span></a>
                 @elseif($data->status=='diterima')
-                <a href="{{url('/ubahstatusditerima')}}/{{$data->id_pemesanan}}"><span class="label label-warning">Pesanan Diterima</span></a>
+                <a href="{{url('/ubahstatusditerima')}}/{{$data->id_pemesanan}}"><span class="btn btn-sm btn-info" style="background: #FFD700; border-color: #fff">Pesanan Diterima</span></a>
                 @else
-                <span class="label label-success">Selesai</span>
+                <span class="btn btn-sm btn-info" style="background: #32CD32; border-color: #fff">Selesai</span>
                 @endif
               </td>
-              <td><a target="_blank" href="https://web.whatsapp.com/send?phone=+62{{$data->no_telfon}}&text=Layanan%20Homecare" class="btn btn-success" ><i class="fa fa-phone"></i></a></td>
+              <td><center><a target="_blank" href="https://web.whatsapp.com/send?phone=+62{{$data->no_telfon}}&text=Layanan%20Homecare" class="btn btn-success" ><i class="fa fa-whatsapp" style="font-size:32px"></i></a></center></td>
               @endforeach  
             </table>
           </div>

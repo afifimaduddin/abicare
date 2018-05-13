@@ -28,26 +28,26 @@
               <th>Nama Homecare</th>
               <th>Alamat Homecare</th>
               <th>Status Homecare</th>
-              <th>SIPP</th>
+              <th>SIPP/STR</th>
               <th>Aksi</th>
             </tr>
           </thead>
             @foreach($mitra as $data)
             <tr>
               <td>{{$data->id_homecare}}</td>
-              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
+              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/iconhomecare.png')}}'" alt="User profile picture"></td>
               <td>{{$data->nama_homecare}}</td>
               <td>{{$data->alamat_homecare}}</td>
               <td> 
                 @if($data->status_homecare=='nonaktif')
-                <a href="{{url('/ubahstatushomecare')}}/{{$data->id_homecare}}" class="label label-danger">Nonaktif</a>
+                <a href="{{url('/ubahstatushomecare')}}/{{$data->id_homecare}}" class="btn btn-sm btn-info" style="background: #FF0000; border-color: #fff">Nonaktif</a>
                 @else
-                <span class="label label-success">Aktif</span>
+                <span class="btn btn-sm btn-info" style="background: #32CD32; border-color: #fff">Aktif</span>
                 @endif
               </td>
               <td>
                 @if($data->SIPP != NULL)
-                <a href="storage/asset/dist/verifikasi/{{$data->SIPP}}" target="_blank"><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/verifikasi/')}}/{{$data->SIPP}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></a>
+                <a href="storage/asset/dist/verifikasi/{{$data->SIPP}}" target="_blank"><img class="profile-user-img img-responsive img-square" src="{{url('storage/asset/dist/verifikasi/')}}/{{$data->SIPP}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/document.png')}}'" alt="User profile picture"></a>
                 @else
                 Belum ada berkas
                 @endif

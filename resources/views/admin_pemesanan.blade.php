@@ -42,11 +42,11 @@
             <td>{{$data->keluhan}}</td>
             <td>
               @if($data->status=='proses')
-                <span class="label label-danger">Proses</span>
+                <span class="btn btn-sm btn-info" style="background: #FF0000; border-color: #fff">Proses</span>
                 @elseif($data->status=='diterima')
-                <span class="label label-warning">Pesanan Diterima</span>
+                <span class="btn btn-sm btn-info" style="background: #FFD700; border-color: #fff">Pesanan Diterima</span>
                 @else
-                <span class="label label-success">Selesai</span>
+                <span class="btn btn-sm btn-info" style="background: #32CD32; border-color: #fff">Selesai</span>
                 @endif
             </td>
           </tr>

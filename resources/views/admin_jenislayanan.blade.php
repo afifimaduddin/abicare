@@ -7,7 +7,7 @@
   $().ready(function (e) {
     swal({
       title: "Success!",
-      text: "Nama Perawatan Berhasil Diubah :)",
+      text: "Nama Perawatan Berhasil Diubah",
       icon: "success",
       button: false,
       timer: 2000
@@ -21,7 +21,7 @@
   $().ready(function (e) {
     swal({
       title: "Success!",
-      text: "Nama Perawatan Berhasil Ditambah :)",
+      text: "Nama Perawatan Berhasil Ditambah",
       icon: "success",
       button: false,
       timer: 2000

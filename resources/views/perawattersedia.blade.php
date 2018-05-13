@@ -26,14 +26,14 @@
               <th>Tanggal Lahir</th>
               <th>Pendidikan terakhir</th>
               <th>Jurusan</th>
-              <th>NIRA</th>
+              <th>SIPP/STR</th>
               <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
             @foreach($tambahperawat as $data)
             <tr>
-              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_perawat}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture"></td>
+              <td><img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_perawat}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar5.png')}}'" alt="User profile picture"></td>
               <td>{{$data->nama_perawat}}</td>
               <td>{{$data->jenis_kelamin}}</td>
               <td>{{$data->tanggal_lahir}}</td>

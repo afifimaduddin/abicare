@@ -27,7 +27,7 @@
         $().ready(function (e) {
           swal({
             title: "Success!",
-            text: "Detail Homecare berhasil diubah :)",
+            text: "Detail Homecare berhasil diubah",
             icon: "success",
             button: false,
             timer: 2000
@@ -41,7 +41,7 @@
         $().ready(function (e) {
           swal({
             title: "Success!",
-            text: "Identitas berhasil diubah :)",
+            text: "Identitas berhasil diubah",
             icon: "success",
             button: false,
             timer: 2000
@@ -55,7 +55,7 @@
         $().ready(function (e) {
           swal({
             title: "Success!",
-            text: "Jadwal berhasil diubah :)",
+            text: "Jadwal berhasil diubah",
             icon: "success",
             button: false,
             timer: 2000
@@ -98,7 +98,7 @@
               @foreach($homecare as $data)
               <div class="widget-user-header">
                 <div class="widget-user-image">
-                  <img class="img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'">
+                  <img class="img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/iconhomecare.png')}}'">
                 </div>
                 <!-- /.widget-user-image -->
                 
@@ -187,7 +187,7 @@
                     <td>
                       <form method="delete" action="{{ route('jadwalhomecare.destroy', $data->id_jadwal_homecare) }}">
                         <a class="btn btn-primary" data-toggle="modal" data-target="#modal-jadwal{{$data->id_jadwal_homecare}}">Ubah</a>
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
                       </form>
                     </td>
                   </tr>
@@ -268,8 +268,6 @@
           </section>
           <section class="content" style="display:<?php echo $tampilkanform ?>" >
             <div class="callout callout-success">
-              <h4>Selamat Datang di Abicare Indonesia :)</h4>
-
               <p>Silahkan lengkapi form dibawah untuk menambah identitas homecare.</p>
             </div>
 
@@ -487,7 +485,10 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nomor Telepon</label>
+                    <div class="input-group">
+                    <span class="input-group-addon">+62</span>
                     <input type="string" class="form-control" name="no_telfon" id="exampleInputPassword1" placeholder="Nomor Telepon" value="{{$data->no_telfon}}">
+                  </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tarif</label>
@@ -516,7 +517,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Upload SIPP untuk Verifikasi </h4>
+                <h4 class="modal-title">Upload SIPP atau STR untuk Verifikasi </h4>
               </div>
               <div class="modal-body">
                 <div class="box-body">
@@ -527,7 +528,7 @@
                     {{method_field('PATCH')}}
 
                     <div class="form-group">
-                      <label for="exampleInputFile">SIPP </label>
+                      <label for="exampleInputFile">SIPP atau STR </label>
                       <input class="form-control" type="file" name="sipp">
                     </div>
 

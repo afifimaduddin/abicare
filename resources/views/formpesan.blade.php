@@ -22,11 +22,8 @@
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-      minDate: 0,
-       onSelect: function(dateText) {
-        $sD = new Date(dateText);
-        $("#datepicker").datepicker('option', 'minDate', min);
-    }
+      dateFormat: "yy-mm-dd",
+      minDate: -3
     })
 
 
@@ -83,21 +80,21 @@
             <!-- /.form group -->
 
             <!-- Date range -->
-            <div class="bootstrap-timepicker">
+            <!-- <div class="bootstrap-timepicker"> -->
               <div class="form-group">
                 <label>Jam Pemesanan:</label>
 
                 <div class="input-group">
-                  <input name="jam_pemesanan" type="time" class="form-control timepicker" id="jadwal">
-                  <!-- <input name="jam_waktu" type="hidden" class="form-control" id="jadwal_time"> -->
+                  <input name="jam_pemesanan" type="time" class="form-control" id="">
                   <div class="input-group-addon">
                     <i class="fa fa-clock-o"></i>
                   </div>
                 </div>
+                <a style="color : red">Contoh : 09:00:AM</a>
                 <!-- /.input group -->
               </div>
               <!-- /.form group -->
-            </div>
+            <!-- </div> -->
 
             <div class="form-group">
               <label for="exampleInputPassword1">Keluhan pasien:</label>

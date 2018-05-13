@@ -1,16 +1,40 @@
 @extends('halamanperawat')
-
 @section('isi3')
+
+@if(session()->has('tambahperawat'))
+<script>
+  $().ready(function (e) {
+    swal({
+      title: "Success!",
+      text: "Identitas berhasil ditambahkan :)",
+      icon: "success",
+      button: false,
+      timer: 2000
+    });
+  });
+</script>
+@endif
+
 <section class="content-header">
   <h1>
-   Tambah Perawat
-    <small></small>
+    <small><a href="{{url('perawattersedia')}}">Kembali</a></small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Perawat</a></li>
-    <li class="active">Tambah Perawat</li>
+    <li class="active">kembali</li>
   </ol>
 </section>
+
+@if (count($errors) > 0)
+  <div class="callout callout-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <section class="content">
   <div class="row">
     <!-- left column -->
@@ -44,32 +68,27 @@
               <label for="exampleInputPassword1">Pendidikan Terakhir</label>
               <select id="angkatanawal" name="jenjang" class="form-control required">
                     <option value="" disabled selected=""> <i>---Pilih Jenjang---</i></option>
-                    <option value="D1">D1</option>
-                    <option value="D2">D2</option>
-                    <option value="D3">D3</option>
-                    <option value="D4">D4</option>
-                    <option value="S1">S1</option>
-                    <option value="S2">S2</option>
-                  </select>
+                    <option value="d1">D1</option>
+                    <option value="d2">D2</option>
+                    <option value="d3">D3</option>
+                    <option value="d4">D4</option>
+                    <option value="s1">S1</option>
+                    <option value="s2">S2</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Jurusan</label>
               <input type="string" name="jurusan" class="form-control" id="exampleInputPassword1" placeholder="Jurusan">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">NIRA (Nomor Induk Registrasi Anggota)</label>
-              <input type="string" name="nomor" class="form-control" id="exampleInputPassword1" placeholder="NIRA">
+              <label for="exampleInputPassword1">SIPP/STR</label>
+              <input type="string" name="nomor" class="form-control" id="exampleInputPassword1" placeholder="SIPP/STR">
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Foto</label>
               <input type="file" id="exampleInputFile" name="foto_parawat">
 
               <p class="help-block">Example block-level help text here.</p>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Check me out
-              </label>
             </div>
           </div>
           <!-- /.box-body -->

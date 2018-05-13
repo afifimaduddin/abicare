@@ -121,12 +121,14 @@
 
                 <ul class="dropdown-menu">
                   <li>
+                  	<center>
                     <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    Logout
+                    <i class="fa fa-sign-out"></i>
+                    Keluar
                   </a>
-
+                  	</center>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                   </form>
@@ -144,7 +146,7 @@
       
       <ul class="sidebar-menu" data-widget="treeview">
 
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">P E R A W A T</li>
         <li class="treeview">
           <a href="{{url('/halamanperawat')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -191,7 +193,7 @@
         <div class="col-md-6 col-md-offset-2">
           <div class="box box-default">
             <div class="box-header">
-              <img src="{{url('asset/dist/img/abicarelogo.png')}}" class="user-image" alt="User Image" width="130px">
+              <center><img src="{{url('asset/dist/img/abicarelogo.png')}}" class="user-image" alt="User Image" width="130px"></center>
             </div> 
             <div class="box-body" align="center">
               Selamat Datang di Abicare Indonesia
@@ -277,7 +279,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
              
-              <h3></h3>
+              <h3>10</h3>
               
               <p>Pesanan Baru</p>
             </div>

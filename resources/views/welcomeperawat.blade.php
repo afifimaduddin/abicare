@@ -99,8 +99,8 @@
                 <li><a class="menu" href="#templatemo_portfolio">Portfolio</a></li>
                 <li><a class="menu" href="#templatemo_blog">Blog</a></li>
                 <li><a class="menu" href="#templatemo_contact">Contact</a></li> -->
-                <li><a class="menu" href="{{route('login')}}">Login</a></li>
-                <li><a class="menu" href="{{route('register')}}">Daftar Sekarang</a></li>
+                <li><a style="font-size:120%;" class="menu" href="{{route('login')}}"><b>Login</b></a></li>
+                <li><a style="font-size:120%;" class="menu" href="{{route('register')}}"><b>Daftar Sekarang</b></a></li>
               </ul>
             </nav>
           </div>
@@ -129,26 +129,27 @@
     <!-- Custom Tabs -->
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab_1" data-toggle="tab">Daftar Perawat</a></li>
-        <li><a href="#tab_2" data-toggle="tab">Buat Homecare</a></li>
-        <li><a href="#tab_3" data-toggle="tab">Hubungi Pasien</a></li>
+        <li class="active"><a style="font-size:120%;" href="#tab_1" data-toggle="tab">Daftar Perawat</a></li>
+        <li><a style="font-size:120%;" href="#tab_2" data-toggle="tab">Buat Homecare</a></li>
+        <li><a style="font-size:120%;" href="#tab_3" data-toggle="tab">Hubungi Pasien</a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_1">
-          <b>Selamat datang di Abicare Indonesia</b>
-
-          <p>Untuk melakukan pelayanan online dan terhubung dengan pasien anda, perawat harus menjadi member Abicare Indonesia.</p>
+          <b style="font-size:120%;">Selamat datang di Abicare Indonesia</b>
+          <br>
+          <br>
+          <p style="font-size:120%;">Untuk melakukan pelayanan online dan terhubung dengan pasien anda, perawat harus menjadi member Abicare Indonesia.</p>
 
           <a class="btn btn-primary" href="{{route('register')}}">Daftar Sekarang</a>
           </div>
           <!-- /.tab-pane -->
-          <div class="tab-pane" id="tab_2">
+          <div style="font-size:120%;" class="tab-pane" id="tab_2">
            Member perawat atau mitra Abicare Indonesia dapat membuat homecare sesuai jenis pelayanan yang telah ada 
 
            <p></p>
           </div>
           <!-- /.tab-pane -->
-          <div class="tab-pane" id="tab_3">
+          <div style="font-size:120%;" class="tab-pane" id="tab_3">
             Member dapat mengetahui keluhan dan menghubungi pasien jika ada pesanan yang masuk
 
             <p></p>

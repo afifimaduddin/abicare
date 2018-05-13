@@ -94,147 +94,171 @@
               <div id="top-menu">
                 <nav class="mainMenu">
                   <ul class="nav">
-                <li><a class="menu" href="{{route('login')}}">Login</a></li>
-                <li><a class="menu" href="{{route('register')}}">Daftar Sekarang</a></li>
-              </ul>
-            </nav>
+                    <li><a style="font-size:120%;" class="menu" href="{{route('login')}}"><b>Login</b></a></li>
+                    <li><a style="font-size:120%;" class="menu" href="{{route('register')}}"><b>Daftar Sekarang</b></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</header>
-<div class="templatemo_portfolio" id="templatemo_portfolio">
-  <div class="container">
-    <div class="col-md-3 col-md-offset-4 templatemo_col12">
-      <div class="item project-post">
-        <div class="templatemo_about_box">
-          <div class="square_coner">
-           <span class="texts-a"><i class="fa fa-user"></i></span>
+  </header>
+  <div class="templatemo_portfolio" id="templatemo_portfolio">
+    <div class="container">
+      <div class="col-md-3 col-md-offset-4 templatemo_col12">
+        <div class="item project-post">
+          <div class="templatemo_about_box">
+            <div class="square_coner">
+             <span class="texts-a"><i class="fa fa-user"></i></span>
+           </div>
          </div>
-       </div>
-     </div>  
+       </div>  
+     </div>
+
    </div>
+   <!--  <h2 class="page-header">Perawat</h2> -->
+   <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <!-- Custom Tabs -->
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active"><a style="font-size:120%;" href="#tab_1" data-toggle="tab">Daftar Pasien</a></li>
+          <li><a style="font-size:120%;" href="#tab_2" data-toggle="tab">Pesan Homecare</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab_1">
+            <b style="font-size:140%;">Selamat datang di Abicare Indonesia</b>
+            <br>
+            <br>
+            <p style="font-size:120%;">Untuk melakukan pelayanan online dan terhubung dengan perawat, pasien harus menjadi member Abicare Indonesia.</p>
 
- </div>
- <!--  <h2 class="page-header">Perawat</h2> -->
- <div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <!-- Custom Tabs -->
-    <div class="nav-tabs-custom">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab_1" data-toggle="tab">Daftar Pasien</a></li>
-        <li><a href="#tab_2" data-toggle="tab">Pesan Homecare</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="tab_1">
-          <b>Selamat datang di Abicare Indonesia</b>
+            <a class="btn btn-primary" href="{{route('register')}}">Buat Akun</a>
+          </div>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_2">
+            <p style="font-size:140%;">Pilih layanan yang anda butuhkan</p>
+            <div class="row">
+              @foreach($roles_jenis as $data)
+              <div class="col-md-4">
+                <div class="box box-widget widget-user-2">
+                  <div class="widget-user-header bg-white">
+                    <div class="box-body box-profile">
+                      <div class="widget-user-image">
+                        <img class="img-circle" src="{{url('asset/dist/img/layanan.png')}}" alt="User profile picture">
+                      </div>
+                      <h3 class="profile-username text-center">
+                        {{$data->nama_perawatan}}
+                      </h3>
+                      <p class="text-muted text-center">
+                        {{$data->id_roles_jenis}}
+                      </p>
+                    </div>
+                    <div class="box-footer">
+                      <center><button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Pilih</button></center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endforeach
 
-          <p>Untuk melakukan pelayanan online dan terhubung dengan perawat, pasien harus menjadi member Abicare Indonesia.</p>
 
-          <a class="btn btn-primary" href="{{route('register')}}">Buat Akun</a>
+            </div>
+            <!-- /.tab-pane -->
+          </div>
+          <!-- /.tab-content -->
         </div>
-        <!-- /.tab-pane -->
-        <div class="tab-pane" id="tab_2">
-          <p>Pesan Homecare dan nikmati pelayanannya sekarang :)</p>
-
-          <p><a class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Pesan Homecare</a></p>
+        <!-- nav-tabs-custom -->
+      </div>
+    </div>
+  </div>
+  <!-- Bottom Start -->
+  <div class="clear"></div>
+  <!--Footer Start-->
+  <div class="templatemo_footer">
+    <div class="container">
+      <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+        <div class="clear"></div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+        <div id="templatemo_flicker" >
+          <br style="clear: right;" />
         </div>
-        <!-- /.tab-pane -->
       </div>
-      <!-- /.tab-content -->
-    </div>
-    <!-- nav-tabs-custom -->
-  </div>
-</div>
-</div>
-<!-- Bottom Start -->
-<div class="clear"></div>
-<!--Footer Start-->
-<div class="templatemo_footer">
-  <div class="container">
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-      <div class="clear"></div>
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
-      <div id="templatemo_flicker" >
-        <br style="clear: right;" />
+      <div class="col-xs-6 col-sm-6 col-md-18 templatemo_col12">
+        <h2>Kontak</h2>
+        <span class="left col-xs-1 fa fa-map-marker"></span>
+        <span class="right col-xs-11">Jalan Bulusan X, Tembalang, Semarang, Jawa Tengah, 50277, Indonesia </span>
+        <div class="clear height10"></div>
+        <span class="left col-xs-1 fa fa-phone"></span>
+        <span class="right col-xs-11">0821-3865-1233</span>
+        <div class="clear height10"></div>
+        <span class="left col-xs-1 fa fa-envelope"></span>
+        <span class="right col-xs-11">abicareindonesia@gmail.com</span>
+        <div class="clear height10"></div>
+        <span class="left col-xs-1 fa fa-globe"></span>
+        <span class="right col-xs-11">www.abicareindonesia.com</span>
+        <div class="clear"></div>
       </div>
     </div>
-    <div class="col-xs-6 col-sm-6 col-md-18 templatemo_col12">
-      <h2>Kontak</h2>
-      <span class="left col-xs-1 fa fa-map-marker"></span>
-      <span class="right col-xs-11">Kampus Universitas Diponegoro, Tembalang, Semarang, Jawa Tengah, Indonesia </span>
-      <div class="clear height10"></div>
-      <span class="left col-xs-1 fa fa-phone"></span>
-      <span class="right col-xs-11">0821-3865-1233</span>
-      <div class="clear height10"></div>
-      <span class="left col-xs-1 fa fa-envelope"></span>
-      <span class="right col-xs-11">abicareindonesia@gmail.com</span>
-      <div class="clear height10"></div>
-      <span class="left col-xs-1 fa fa-globe"></span>
-      <span class="right col-xs-11">www.abicareindonesia.com</span>
-      <div class="clear"></div>
-    </div>
   </div>
-</div>
 
-<div class="templatemo_bottom">
-  <div class="container">
-    <div class="row">
-      <div class="left">
-        <span>Copyright © 2018 <a href="{{ url('/') }}">Abicare Indonesai</a></span>
-      </div>
-      <div class="right">
-        <a href="#"><div class="fa fa-rss soc"></div></a>
-        <a href="#"><div class="fa fa-twitter soc"></div></a>
-        <a href="#"><div class="fa fa-linkedin soc"></div></a>
-        <a href="#"><div class="fa fa-dribbble soc"></div></a>
-        <a href="#"><div class="fa fa-facebook soc"></div></a>
+  <div class="templatemo_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="left">
+          <span>Copyright © 2018 <a href="{{ url('/') }}">Abicare Indonesai</a></span>
+        </div>
+        <div class="right">
+          <a href="#"><div class="fa fa-rss soc"></div></a>
+          <a href="#"><div class="fa fa-twitter soc"></div></a>
+          <a href="#"><div class="fa fa-linkedin soc"></div></a>
+          <a href="#"><div class="fa fa-dribbble soc"></div></a>
+          <a href="#"><div class="fa fa-facebook soc"></div></a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- modal -->
 <div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Pemesanan</h4>
-        </div>
-        <div class="modal-body">
-          <div class="alert alert-danger alert-dismissible">
-            <h4><i class="icon fa fa-edit"></i> Buat Akun atau Login!</h4>
-            Untuk melakukan pemesanan homecare harus membuat akun atau login sebagai pasien
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-          <button type="button" class="btn btn-primary" href="{{route('login')}}">Login</button>
-          <button type="button" class="btn btn-danger" href="{{route('register')}}">Buat Akun</button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Pemesanan</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger alert-dismissible">
+          <h4><i class="icon fa fa-edit"></i> Buat Akun atau Login!</h4>
+          Untuk melakukan pemesanan homecare harus membuat akun atau login sebagai pasien
         </div>
       </div>
-      <!-- /.modal-content -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+        <a type="button" class="btn btn-primary" href="{{route('login')}}">Login</a>
+        <a type="button" class="btn btn-danger" href="{{route('register')}}">Buat Akun</a>
+      </div>
     </div>
-    <!-- /.modal-dialog -->
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal -->
-  <!--Start of Tawk.to Script-->
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5ac6f004d7591465c7093d2b/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5ac6f004d7591465c7093d2b/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
 </script>
 <!--End of Tawk.to Script-->
 

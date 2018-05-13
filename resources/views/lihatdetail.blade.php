@@ -10,7 +10,7 @@
         @foreach($homecare as $data)
         <div class="widget-user-header bg-default">
           <div class="widget-user-image">
-            <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/avatar.png')}}'" alt="User profile picture">
+            <img class="profile-user-img img-responsive img-circle" src="{{url('storage/asset/dist/img/')}}/{{$data->foto_homecare}}" alt="User Avatar" onerror="this.src='{{url('asset/dist/img/iconhomecare.png')}}'" alt="User profile picture">
           </div>
           <!-- /.widget-user-image -->
           
@@ -45,7 +45,7 @@
 
             <strong><i class="fa fa-phone margin-r-5"></i>No Telepon</strong>
 
-            <p class="text-muted">{{$data->no_telfon}}</p>
+            <p class="text-muted">+62{{$data->no_telfon}}</p>
 
             <hr>
 

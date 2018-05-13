@@ -4,11 +4,11 @@
 <body class="hold-transition login-page">
     <div class="login-box">
   <div class="login-logo">
-     <a href="{{ url('/') }}"><img src="{{url('asset/dist/img/abicarelogo.png')}}" class="img-responsive"></a>
+     <center><a href="{{ url('/') }}"><img style="max-width:80%;" src="{{url('asset/dist/img/abicarelogo.png')}}" class="img-responsive"></a></center>
  </div>
 
     <div class="login-box-body" style="border-radius: 25px">
-            <p class="login-box-msg">Login untuk masuk</p>
+            <p class="login-box-msg">Login Abicare</p>
               <center><small class="login-box-msg text-muted"><i>*Cek E-mail dan pastikan akun telah terverifikasi</i></small></center>
         <div class="row">
             <div class="panel-body">
@@ -76,7 +76,7 @@
                                 </a> -->
                             </div>
                         </div>
-                        <p style="text-align: center;">Belum memiliki akun? Silahkan&nbsp<a href="{{ route('register') }}">Daftar</a> &nbsp;disini</p> 
+                        <p style="text-align: center;">Belum memiliki akun? Silahkan <a href="{{ route('register') }}"> Daftar</a> disini</p> 
                     </form>
                 </div>
             </div>

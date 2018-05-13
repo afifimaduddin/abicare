@@ -7,7 +7,7 @@
   $().ready(function (e) {
     swal({
       title: "Selamat!",
-      text: "Pemesanan Telah Dilakukan :)",
+      text: "Pemesanan Telah Dilakukan",
       icon: "success",
       button: false,
       timer: 2000
@@ -17,7 +17,7 @@
 @endif
 <section class="content-header">
   <h1>
-    . 
+    Riwayat Pemesanan 
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Pasien</a></li>
@@ -27,7 +27,7 @@
 <section class="content">
   <div class="box box-success">
     <div class="box-header">
-      <h3 class="box-title">Riwayat Pemesanan</h3>
+      
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -51,14 +51,14 @@
               <td>{{$data->keluhan}}</td>
               <td>
                 @if($data->status=='proses')
-                <span class="label label-danger">Proses</span>
+                <span class="btn btn-sm btn-info" style="background: #FF0000; border-color: #fff">Proses</span>
                 @elseif($data->status=='diterima')
-                <span class="label label-warning">Pesanan Diterima</span>
+                <span class="btn btn-sm btn-info" style="background: #FFD700; border-color: #fff">Pesanan Diterima</span>
                 @else
-                <span class="label label-success">Selesai</span>
+                <span class="btn btn-sm btn-info" style="background: #32CD32; border-color: #fff">Selesai</span>
                 @endif
               </td>
-              <td><a target="_blank" href="https://web.whatsapp.com/send?phone=+62{{$data->no_telfon}}&text=Selamat%20Datang%20Di%20Layanan%20Abicare%20 :)" class="btn btn-success" ><i class="fa fa-phone"></i></a></td>
+              <td><center><a target="_blank" href="https://web.whatsapp.com/send?phone=+62{{$data->no_telfon}}&text=Selamat%20Datang%20Di%20Layanan%20Abicare%20 :)" class="btn btn-success" ><i class="fa fa-whatsapp" style="font-size:32px"></i></a></center></td>
             </tr>
               @endforeach  
           </tbody>
